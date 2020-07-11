@@ -2,13 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LisMusic"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Login.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
             <!-- primary -->
             <SolidColorBrush x:Key="PrimaryColor" Color="#212121"/>
             <SolidColorBrush x:Key="PrimaryLightColor" Color="#484848"/>
             <SolidColorBrush x:Key="PrimaryDarkColor" Color="#000000"/>
+            <SolidColorBrush x:Key="PrimaryAuxColor" Color="#373737"/>
             <!-- secondary-->
             <SolidColorBrush x:Key="SecondaryColor" Color="#00695c"/>
             <SolidColorBrush x:Key="SecondaryLightColor" Color="#439889"/>
