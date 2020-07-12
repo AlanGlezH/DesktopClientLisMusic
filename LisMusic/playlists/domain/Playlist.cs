@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace LisMusic.playlists.domain
 {
@@ -16,8 +17,11 @@ namespace LisMusic.playlists.domain
         public int idPlaylistType { get; set; }
         public string idAccount { get; set; }
         public string owner { get; set; }
+    
 
-        public Playlist(int idPlaylist, string title, string creation, string cover, bool publicPlaylist, int idPlaylistType, string idAccount, string owner)
+
+        public Playlist(int idPlaylist, string title, string creation, string cover, bool publicPlaylist,
+                        int idPlaylistType, string idAccount, string owner)
         {
             this.idPlaylist = idPlaylist;
             this.title = title;

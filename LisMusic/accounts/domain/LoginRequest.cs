@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LisMusic.accounts.resources
+namespace LisMusic.accounts.domain
 {
     class LoginRequest
     {

@@ -1,7 +1,10 @@
-﻿using LisMusic.playlists.domain;
+﻿using LisMusic.playlists;
+using LisMusic.playlists.domain;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,29 +27,9 @@ namespace LisMusic.Views
         public PlaylistPage()
         {
             InitializeComponent();
-            var playlists = GetPlaylist();
-            if(playlists.Count > 0)
-            {
-                Playlist playlist = new Playlist(1, "Playlist 1", "now", "/Resources/Img/Logo.png", false, 0, null, "victornino");
-                
-                ListViewPlaylists.ItemsSource = playlists;
-            }
-            
-        }
-
-        private List<Playlist> GetPlaylist()
-        {
-            return new List<Playlist>()
-              {
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-                new Playlist(1,"Playlist 1","now","/Resources/Img/defaultPlaylistCover.jpeg",false,0,null,"victornino"),
-              };
-
+                       
+            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount(); ;
+                          
         }
     }
 }

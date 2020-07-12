@@ -1,5 +1,5 @@
 ﻿using LisMusic.accounts;
-using LisMusic.accounts.resources;
+using LisMusic.accounts.domain;
 using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
