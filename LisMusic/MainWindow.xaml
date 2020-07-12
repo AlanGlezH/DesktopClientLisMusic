@@ -35,10 +35,10 @@
         <Frame x:Name="centralFrame" Margin="70,70,0,0" />
         <Grid Height="70" VerticalAlignment="Top" Background="{DynamicResource PrimaryColor}" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="100,0,0,0">
-                <Image x:Name="image_cover" Source="/Resources/Img/Logo.png" Height="70" Width="70"/>
+                <Image x:Name="image_cover_player" Source="/Resources/Img/Logo.png" Height="70" Width="70"/>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20,0,0,0">
-                    <TextBlock Text="Track Name" Foreground="{DynamicResource TextColor}" FontSize="20" FontWeight="DemiBold"/>
-                    <TextBlock Text="Artist Name" Foreground="{DynamicResource TextColor}" FontSize="17" FontWeight="Normal"/>
+                    <TextBlock x:Name="TextBlock_track_name" Text="Track Name" Foreground="{DynamicResource TextColor}" FontSize="20" FontWeight="DemiBold"/>
+                    <TextBlock x:Name="TextBlock_artist_name" Text="Artist Name" Foreground="{DynamicResource TextColor}" FontSize="17" FontWeight="Normal"/>
                 </StackPanel>
                 
             </StackPanel>
@@ -56,30 +56,29 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <TextBlock Text="0:00" Foreground="{DynamicResource TextColor}"/>
-                    <Slider x:Name="time_slider" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
+                    <TextBlock x:Name="TextBlock_initial_duration" Text="0:00" Foreground="{DynamicResource TextColor}"/>
+                    <Slider x:Name="Slider_track_duration" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
                             Width="300" Foreground="{DynamicResource SecondaryColor}"
                             VerticalAlignment="Center" Margin="10,0,10,0"/>
-                    <TextBlock Text="3:00" Foreground="{DynamicResource TextColor}"/>
+                    <TextBlock  x:Name="TextBlock_final_duration" Text="3:00" Foreground="{DynamicResource TextColor}"/>
                 </StackPanel>
             </StackPanel>
            
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,10,0">
-                    <Button x:Name="buttom_volume" Height="30" Width="30" Padding="0" Foreground="{DynamicResource TextColor}">
+                    <Button x:Name="Buttom_volume" Height="30" Width="30" Padding="0" Foreground="{DynamicResource TextColor}">
                         <materialDesign:PackIcon Kind="VolumeMedium" Width="30" Height="30" />
                     </Button>
-                    <Slider x:Name="volume_slider" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
+                    <Slider x:Name="Slider_volume" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
                             Width="100" Foreground="{DynamicResource SecondaryColor}"
                             VerticalAlignment="Center"/>
                 </StackPanel>
                 
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
                     <StackPanel Width="auto">
-                        <Button x:Name="Button_account" Content="Cuenta"  />
-                        <Separator/>
-                        <Button x:Name="Button_signout" Content="Cerrar Sesión" />
+                        <Button x:Name="Button_account" Content="Account"  />
+                        <Button x:Name="Button_configuration" Content="Configuration" />
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>

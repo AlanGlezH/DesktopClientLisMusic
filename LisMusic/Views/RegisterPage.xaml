@@ -30,6 +30,7 @@
                    TextAlignment="Center"/>
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <TextBox
+                x:Name="TextBox_first_name"
                 materialDesign:HintAssist.Hint="First Name"
                 materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -40,6 +41,7 @@
                 Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
                 FontSize="15"/>
             <TextBox
+                x:Name="TextBox_last_name"
                 materialDesign:HintAssist.Hint="Last Name"
                 materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -50,6 +52,7 @@
                 Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
                 FontSize="15"/>
             <TextBox
+                x:Name="TextBox_email"
                 materialDesign:HintAssist.Hint="Email"
                 materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -60,6 +63,7 @@
                 Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
                 FontSize="15"/>
             <TextBox
+                x:Name="TextBox_username"
                 materialDesign:HintAssist.Hint="Username"
                 materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -70,7 +74,7 @@
                 Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
                 FontSize="15"/>
             <PasswordBox
-                x:Name="FloatingPasswordBox"
+                x:Name="PasswordBox_password"
                 Foreground="{DynamicResource TextColor}"
                 Background="{DynamicResource PrimaryLightColor}"
                 Padding="5,0,0,0" FontWeight="DemiBold"
@@ -83,6 +87,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
 
             <PasswordBox
+                x:Name="PasswordBox_confirm_password"
                 Foreground="{DynamicResource TextColor}"
                 Background="{DynamicResource PrimaryLightColor}"
                 Padding="5,0,0,0" FontWeight="DemiBold"
@@ -94,6 +99,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <DatePicker
+                    x:Name="DatePicker_birthday"
                     Margin="0,0,10,0" Width="100" FontSize="15"
                     Foreground="White"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -114,12 +120,14 @@
                     </DatePicker.Resources>
                 </DatePicker>
                 <RadioButton
+                    x:Name="RadioButton_male"
                     Style="{StaticResource MaterialDesignRadioButton}"
                     Margin="10,0,0,0" Width="100" GroupName="Gender" Content="Male" 
                     Foreground="{DynamicResource TextColor}"
                     Background="{DynamicResource SecondaryDarkColor}"
                     />
                 <RadioButton
+                    x:Name="RadioButton_female"
                     Style="{StaticResource MaterialDesignRadioButton}"
                     Width="100" GroupName="Gender" Content="Female" 
                     Foreground="{DynamicResource TextColor}"
@@ -127,6 +135,7 @@
             </StackPanel>
         </StackPanel>
         <Button Grid.Row="2"
+                x:Name="Button_register"
                 Foreground="{DynamicResource TextColor}"
                 Background="{DynamicResource SecondaryColor}"
                 BorderBrush="{DynamicResource SecondaryColor}"
