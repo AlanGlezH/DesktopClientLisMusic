@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LisMusic.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,12 @@ namespace LisMusic
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "ItemPlaylist":
+                    centralFrame.Navigate(new PlaylistPage());
+                    break;
+            }
         }
     }
 }
