@@ -27,5 +27,8 @@ namespace LisMusic
             centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             centralFrame.Navigate(new LoginPage());
         }
+
+
+        
     }
 }

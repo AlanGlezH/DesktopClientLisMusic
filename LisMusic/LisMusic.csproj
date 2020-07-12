@@ -70,6 +70,7 @@
     <Compile Include="accounts\domain\Account.cs" />
     <Compile Include="accounts\domain\LoginRequest.cs" />
     <Compile Include="accounts\domain\LoginResponse.cs" />
+    <Compile Include="Utils\SingletonSesion.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
