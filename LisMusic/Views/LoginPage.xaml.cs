@@ -29,5 +29,12 @@ namespace LisMusic.Views
         {
             this.NavigationService.Navigate(new RegisterPage());
         }
+
+        private void Login(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            Window.GetWindow(this).Close();
+        }
     }
 }

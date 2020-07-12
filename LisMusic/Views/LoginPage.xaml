@@ -52,7 +52,7 @@
                         BorderBrush="{DynamicResource SecondaryColor}"
                         Height="40" Width="200"
                         materialDesign:ButtonAssist.CornerRadius="20"
-                        Content="Sign In"/>
+                        Content="Sign In" Click="Login"/>
                     <Button
                         Background="Transparent"
                         BorderBrush="{DynamicResource SecondaryColor}"
