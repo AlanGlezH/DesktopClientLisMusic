@@ -11,6 +11,127 @@
       Title="Register">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height=".8*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Background="Transparent" Padding="0" BorderBrush="Transparent"
+                VerticalAlignment="Top" Height="40" Width="40"
+                Foreground="White" HorizontalAlignment="Left" Click="GoBack">
+            <materialDesign:PackIcon Kind="ArrowLeft"  Width="40" Height="40"/>
+        </Button>
+        <TextBlock Grid.Row="0" Text="Register" VerticalAlignment="Center"
+                   FontSize="30"
+                   Width="120"
+                   FontWeight="DemiBold"
+                   Foreground="{DynamicResource TextColor}"
+                   TextAlignment="Center"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <TextBox
+                materialDesign:HintAssist.Hint="First Name"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
+                FontSize="15"/>
+            <TextBox
+                materialDesign:HintAssist.Hint="Last Name"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
+                FontSize="15"/>
+            <TextBox
+                materialDesign:HintAssist.Hint="Email"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
+                FontSize="15"/>
+            <TextBox
+                materialDesign:HintAssist.Hint="Username"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="45" Margin="0,0,0,10"
+                FontSize="15"/>
+            <PasswordBox
+                x:Name="FloatingPasswordBox"
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold"
+                Width="300" VerticalAlignment="Center" 
+                FontSize="15" Margin="0,0,0,20"  Height="45"
+                materialDesign:HintAssist.Hint="Password"
+                materialDesign:HintAssist.HelperText="At least 8 characters"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+
+            <PasswordBox
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource PrimaryLightColor}"
+                Padding="5,0,0,0" FontWeight="DemiBold"
+                Width="300" VerticalAlignment="Center" 
+                FontSize="15" Margin="0,0,0,10"  Height="45"
+                materialDesign:HintAssist.Hint="Confirm Passoword"
+                materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <DatePicker
+                    Margin="0,0,10,0" Width="100" FontSize="15"
+                    Foreground="White"
+                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
+                    materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
+                    materialDesign:HintAssist.Background="{DynamicResource SecondaryColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                    materialDesign:HintAssist.Hint="Birthday"
+                    >
+                    <DatePicker.CalendarStyle>
+                        <Style TargetType="{x:Type Calendar}">
+                            <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
+                        </Style>
+                    </DatePicker.CalendarStyle>
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Background" Value="{DynamicResource SecondaryDarkColor}" />
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                <RadioButton
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    Margin="10,0,0,0" Width="100" GroupName="Gender" Content="Male" 
+                    Foreground="{DynamicResource TextColor}"
+                    Background="{DynamicResource SecondaryDarkColor}"
+                    />
+                <RadioButton
+                    Style="{StaticResource MaterialDesignRadioButton}"
+                    Width="100" GroupName="Gender" Content="Female" 
+                    Foreground="{DynamicResource TextColor}"
+                    Background="{DynamicResource SecondaryDarkColor}"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="2"
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource SecondaryColor}"
+                BorderBrush="{DynamicResource SecondaryColor}"
+                Height="40" Width="200"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                Content="Register"/>
     </Grid>
 </Page>

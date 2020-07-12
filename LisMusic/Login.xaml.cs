@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LisMusic
@@ -23,6 +24,7 @@ namespace LisMusic
         public Login()
         {
             InitializeComponent();
+            centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             centralFrame.Navigate(new LoginPage());
         }
     }

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LisMusic"
         mc:Ignorable="d"
-        Title="LisMusic" Height="600" Width="500"
+        Title="LisMusic" Height="600" Width="500" Icon="/Resources/Img/Logo.png" 
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Frame x:Name="centralFrame"/>

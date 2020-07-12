@@ -27,7 +27,7 @@ namespace LisMusic.Views
 
         private void GoToRegister(object sender, RoutedEventArgs e)
         {
-           // this.NavigationService.Navigate()
+            this.NavigationService.Navigate(new RegisterPage());
         }
     }
 }
