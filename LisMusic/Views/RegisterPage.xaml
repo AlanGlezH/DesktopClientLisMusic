@@ -141,6 +141,6 @@
                 BorderBrush="{DynamicResource SecondaryColor}"
                 Height="40" Width="200"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                Content="Register"/>
+                Content="Register" Click="Button_register_Click"/>
     </Grid>
 </Page>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LisMusic.accounts;
+using LisMusic.accounts.resources;
+using LisMusic.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,11 @@ namespace LisMusic.Views
     /// </summary>
     public partial class LoginPage : Page
     {
+       
         public LoginPage()
         {
             InitializeComponent();
+        
         }
 
         private void GoToRegister(object sender, RoutedEventArgs e)
@@ -32,9 +37,46 @@ namespace LisMusic.Views
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
-            Window.GetWindow(this).Close();
+
+            try
+            {
+                if (ValidateEmptyFields())
+                {
+                    LoginRequest loginRequest = new LoginRequest() { user = TextBox_user.Text, password = PasswordBox_password.Password };
+                    LoginResponse loginResponse = AccountRepository.LoginAccount(loginRequest);
+                    SingletonSesion.SetSingletonSesion(loginResponse);
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Window.GetWindow(this).Close();
+                    Console.WriteLine(SingletonSesion.GetSingletonSesion().access_token);
+                } else
+                {
+                    MessageBox.Show("Empty fields");
+                }
+            }
+           catch(Exception ex) 
+            {
+               MessageBox.Show(ex.Message);
+
+            }
         }
+
+
+        public bool ValidateEmptyFields()
+        {
+            bool areValids = true;
+
+            if (String.IsNullOrEmpty(TextBox_user.Text))
+            {
+                areValids = false;
+            } else if (String.IsNullOrEmpty(PasswordBox_password.Password))
+            {
+                areValids = false;
+            }
+
+            return areValids;
+        }
+
+
     }
 }

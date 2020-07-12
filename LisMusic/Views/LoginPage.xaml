@@ -23,6 +23,7 @@
 
                 <StackPanel  Grid.Row="1"  Orientation="Vertical">
                     <TextBox
+                        x:Name="TextBox_user"
                         materialDesign:HintAssist.Hint="User or Email"
                         materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                         materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -33,7 +34,7 @@
                         Padding="5,0,0,0" FontWeight="DemiBold" Width="300" Height="50"
                         FontSize="15"/>
                     <PasswordBox
-                        x:Name="FloatingPasswordBox"
+                        x:Name="PasswordBox_password"
                         Foreground="{DynamicResource TextColor}"
                         Background="{DynamicResource PrimaryLightColor}"
                         Padding="5,0,0,0" FontWeight="DemiBold"
@@ -47,6 +48,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Row="2">
                     <Button
+                      
                         Foreground="{DynamicResource TextColor}"
                         Background="{DynamicResource SecondaryColor}"
                         BorderBrush="{DynamicResource SecondaryColor}"
