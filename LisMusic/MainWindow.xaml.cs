@@ -24,6 +24,7 @@ namespace LisMusic
         public MainWindow()
         {
             InitializeComponent();
+            centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

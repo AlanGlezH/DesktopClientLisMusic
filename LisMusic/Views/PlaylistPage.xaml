@@ -20,12 +20,13 @@
         <TextBlock Text="Playlists" FontSize="35" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" Width="130" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
             <Button
-                        Foreground="{DynamicResource TextColor}"
-                        Background="{DynamicResource SecondaryColor}"
-                        BorderBrush="{DynamicResource SecondaryColor}"
-                        Height="40" Width="200"
-                        materialDesign:ButtonAssist.CornerRadius="20"
-                        Content="Create Playlist"/>
+                x:Name="Button_create_playlist"
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource SecondaryColor}"
+                BorderBrush="{DynamicResource SecondaryColor}"
+                Height="40" Width="200"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                Content="Create Playlist" Click="Button_create_playlist_Click"/>
         </StackPanel>
         <ScrollViewer Grid.Row="2">
             <StackPanel>

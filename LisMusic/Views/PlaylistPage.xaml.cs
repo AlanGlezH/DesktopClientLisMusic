@@ -31,5 +31,12 @@ namespace LisMusic.Views
             ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount(); ;
                           
         }
+
+        private void Button_create_playlist_Click(object sender, RoutedEventArgs e)
+        {
+            FloatingWindow floating = new FloatingWindow();
+            floating.ShowDialog();
+            
+        }
     }
 }
