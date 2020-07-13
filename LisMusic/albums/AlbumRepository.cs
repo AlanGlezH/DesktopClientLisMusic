@@ -17,7 +17,7 @@ namespace LisMusic.albums
         private static string idAccount = SingletonSesion.GetSingletonSesion().account.idAccount;
         private static string token = SingletonSesion.GetSingletonSesion().access_token;
 
-        public static List<Album> GetAlbumsLikeOfAccount()
+        public static async Task<List<Album>> GetAlbumsLikeOfAccount()
         {
             WebRequest webRequest = WebRequest.Create(url + "/account/" + idAccount + "/albumsLike");
             webRequest.Headers.Add("Authorization", token);
@@ -26,7 +26,7 @@ namespace LisMusic.albums
 
             try
             {
-                webResponse = webRequest.GetResponse();
+                webResponse = await webRequest.GetResponseAsync();
             }
             catch (WebException ex)
             {

@@ -27,16 +27,21 @@ namespace LisMusic.Views
         public PlaylistPage()
         {
             InitializeComponent();
-                       
-            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount();
-                          
+            LoadPlaylists();
+           
         }
 
-        private void Button_create_playlist_Click(object sender, RoutedEventArgs e)
+        private async void LoadPlaylists()
+        {
+            ListViewPlaylists.ItemsSource = await PlaylistRepository.GetPlaylistsOfAccount();
+
+        }
+
+        private async void Button_create_playlist_Click(object sender, RoutedEventArgs e)
         {
             FloatingWindow floating = new FloatingWindow();
             floating.ShowDialog();
-            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount();
+            LoadPlaylists();
 
         }
     }

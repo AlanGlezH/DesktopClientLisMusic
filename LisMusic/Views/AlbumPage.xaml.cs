@@ -24,17 +24,20 @@ namespace LisMusic.Views
         public AlbumPage()
         {
             InitializeComponent();
+            LoadAlbums();
+           
+        }
+
+        public async void LoadAlbums()
+        {
             try
             {
-                ListViewAlbums.ItemsSource = AlbumRepository.GetAlbumsLikeOfAccount();
+                ListViewAlbums.ItemsSource = await AlbumRepository.GetAlbumsLikeOfAccount();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Please reload");
             }
-           
         }
-
-
     }
 }

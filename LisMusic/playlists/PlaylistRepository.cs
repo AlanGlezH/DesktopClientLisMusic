@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace LisMusic.playlists
         private static string idAccount = SingletonSesion.GetSingletonSesion().account.idAccount;
         private static string token = SingletonSesion.GetSingletonSesion().access_token;
 
-        public static List<Playlist> GetPlaylistsOfAccount()
+        public static async Task<List<Playlist>> GetPlaylistsOfAccount()
         {
             WebRequest webRequest = WebRequest.Create(url + "/account/"+ idAccount +"/playlist");
             List<Playlist> playlists = null;
@@ -27,7 +28,7 @@ namespace LisMusic.playlists
             WebResponse webResponse;
             try
             {
-                webResponse = webRequest.GetResponse();
+                webResponse = await webRequest.GetResponseAsync();
             }
             catch (WebException ex)
             {
@@ -44,14 +45,9 @@ namespace LisMusic.playlists
                 playlists = JsonConvert.DeserializeObject<List<Playlist>>(result);
             }
             return playlists;
-
-
-
-
         }
 
         public static bool CreatePlaylist(Playlist playlist)
-
         {
             WebRequest webRequest = WebRequest.Create(urlWriter + "/playlist");
             webRequest.Method = "post";
@@ -70,6 +66,9 @@ namespace LisMusic.playlists
             try
             {
                 webResponse = webRequest.GetResponse();
+              
+               
+                
                 return true;
             }
             catch (WebException ex)

@@ -14,7 +14,7 @@ namespace LisMusic.accounts
     {
 
         private static string url = "http://localhost:5000";
-        public static LoginResponse LoginAccount(LoginRequest loginRequest)
+        public static async Task<LoginResponse> LoginAccount(LoginRequest loginRequest)
         {
             
             WebRequest webRequest = WebRequest.Create(url + "/login");
@@ -33,7 +33,7 @@ namespace LisMusic.accounts
             WebResponse webResponse;
             try
             {
-                webResponse = webRequest.GetResponse();
+                webResponse = await webRequest.GetResponseAsync();
             }
             catch (WebException ex )
             {

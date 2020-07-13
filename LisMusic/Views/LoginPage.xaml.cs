@@ -35,7 +35,7 @@ namespace LisMusic.Views
             this.NavigationService.Navigate(new RegisterPage());
         }
 
-        private void Login(object sender, RoutedEventArgs e)
+        private async void Login(object sender, RoutedEventArgs e)
         {
 
             try
@@ -43,7 +43,7 @@ namespace LisMusic.Views
                 if (ValidateEmptyFields())
                 {
                     LoginRequest loginRequest = new LoginRequest() { user = TextBox_user.Text, password = PasswordBox_password.Password };
-                    LoginResponse loginResponse = AccountRepository.LoginAccount(loginRequest);
+                    var loginResponse = await AccountRepository.LoginAccount(loginRequest);
                     SingletonSesion.SetSingletonSesion(loginResponse);
                     MainWindow main = new MainWindow();
                     main.Show();
