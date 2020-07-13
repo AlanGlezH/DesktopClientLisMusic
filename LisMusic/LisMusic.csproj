@@ -70,9 +70,14 @@
     <Compile Include="accounts\domain\Account.cs" />
     <Compile Include="accounts\domain\LoginRequest.cs" />
     <Compile Include="accounts\domain\LoginResponse.cs" />
+    <Compile Include="albums\AlbumRepository.cs" />
+    <Compile Include="albums\domain\Album.cs" />
     <Compile Include="playlists\domain\Playlist.cs" />
     <Compile Include="playlists\PlaylistRepository.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />
+    <Compile Include="Views\AlbumPage.xaml.cs">
+      <DependentUpon>AlbumPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -101,6 +106,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AlbumPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

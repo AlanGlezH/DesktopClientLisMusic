@@ -45,6 +45,12 @@ namespace LisMusic
                 case "ItemPlaylist":
                     centralFrame.Navigate(new PlaylistPage());
                     break;
+                case "ItemAlbums":
+                    centralFrame.Navigate(new AlbumPage());
+                    break;
+
+
+
             }
         }
     }
