@@ -72,6 +72,9 @@
     <Compile Include="accounts\domain\LoginResponse.cs" />
     <Compile Include="albums\AlbumRepository.cs" />
     <Compile Include="albums\domain\Album.cs" />
+    <Compile Include="FloatingWindow.xaml.cs">
+      <DependentUpon>FloatingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="playlists\domain\Playlist.cs" />
     <Compile Include="playlists\PlaylistRepository.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />

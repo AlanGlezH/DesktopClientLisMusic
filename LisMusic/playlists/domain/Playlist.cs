@@ -32,5 +32,9 @@ namespace LisMusic.playlists.domain
             this.idAccount = idAccount;
             this.owner = owner;
         }
+
+        public Playlist()
+        {
+        }
     }
 }

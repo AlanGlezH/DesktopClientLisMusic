@@ -10,5 +10,7 @@ namespace LisMusic.accounts.domain
     {
         public String user { get; set; }
         public String password { get; set; }
+
+        public String rrr { get; set; }
     }
 }

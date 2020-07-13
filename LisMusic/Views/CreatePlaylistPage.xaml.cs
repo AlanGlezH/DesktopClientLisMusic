@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LisMusic.playlists;
+using LisMusic.playlists.domain;
+using LisMusic.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,59 @@ namespace LisMusic.Views
     /// </summary>
     public partial class CreatePlaylistPage : Page
     {
+        private string idAccount;
         public CreatePlaylistPage()
         {
             InitializeComponent();
+            idAccount = SingletonSesion.GetSingletonSesion().account.idAccount;
         }
+
+        private void Button_create_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(TextBox_title_playlist.Text))
+            {
+                MessageBox.Show("Please enter playlist title");
+            } else
+            {
+                SavePlaylist();
+            }
+        }
+
+        private void SavePlaylist()
+        {
+            Playlist playlist = new Playlist()
+            {
+                cover = "DefaultPlaylistCover.jpg",
+                idAccount = idAccount,
+                idPlaylistType = 4,
+                title = TextBox_title_playlist.Text,
+                publicPlaylist = IsPublicPlaylist()
+            };
+
+            try
+            {
+                PlaylistRepository.CreatePlaylist(playlist);
+                MessageBox.Show("Playlist has been created");
+                Window.GetWindow(this).Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private bool IsPublicPlaylist()
+        {
+            bool isPublic = false;
+            if (ToggleButton_public_playlist.IsChecked.Value)
+            {
+                isPublic = true;
+            }
+
+            return isPublic;
+        }
+
+        
     }
 }

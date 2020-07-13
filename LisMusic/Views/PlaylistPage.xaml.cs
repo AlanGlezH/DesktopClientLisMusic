@@ -28,7 +28,7 @@ namespace LisMusic.Views
         {
             InitializeComponent();
                        
-            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount(); ;
+            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount();
                           
         }
 
@@ -36,7 +36,8 @@ namespace LisMusic.Views
         {
             FloatingWindow floating = new FloatingWindow();
             floating.ShowDialog();
-            
+            ListViewPlaylists.ItemsSource = PlaylistRepository.GetPlaylistsOfAccount();
+
         }
     }
 }
