@@ -43,6 +43,9 @@ namespace LisMusic
         {
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
+                case "ItemHome":
+                    centralFrame.Navigate(new PlaylistTracksPage());
+                    break;
                 case "ItemPlaylist":
                     centralFrame.Navigate(new PlaylistPage());
                     break;

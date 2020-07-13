@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LisMusic.Views"
       mc:Ignorable="d" 
-       d:DesignHeight="500" d:DesignWidth="990"
+      d:DesignHeight="500" d:DesignWidth="990"
       Background="{DynamicResource PrimaryAuxColor}"
       Title="Playlist">
 
@@ -41,7 +41,7 @@
                                                 <DropShadowEffect ShadowDepth="1"/>
                                             </Border.Effect>
                                             <Border.Background>
-                                                <ImageBrush ImageSource="{Binding cover}"/>
+                                                <ImageBrush ImageSource="/Resources/Img/defaultPlaylistCover.jpeg"/>
                                             </Border.Background>
                                         </Border>
                                         <TextBlock Margin="5" Text="{Binding title}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
@@ -52,7 +52,7 @@
                         </ListView.ItemTemplate>
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel/>
+                                <WrapPanel />
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>
                     </ListView>

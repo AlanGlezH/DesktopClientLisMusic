@@ -1,5 +1,4 @@
-﻿using LisMusic.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LisMusic
+namespace LisMusic.Views
 {
     /// <summary>
-    /// Interaction logic for FloatingWindow.xaml
+    /// Interaction logic for CreatePlaylistPage.xaml
     /// </summary>
-    public partial class FloatingWindow : Window
+    public partial class CreatePlaylistPage : Page
     {
-        public FloatingWindow()
+        public CreatePlaylistPage()
         {
             InitializeComponent();
-            centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
-            centralFrame.Navigate(new CreatePlaylistPage());
         }
     }
 }

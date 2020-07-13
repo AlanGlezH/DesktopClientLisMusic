@@ -76,14 +76,17 @@
     <Compile Include="playlists\domain\Playlist.cs" />
     <Compile Include="playlists\PlaylistRepository.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />
-    <Compile Include="Views\CreatePlaylist.xaml.cs">
-      <DependentUpon>CreatePlaylist.xaml</DependentUpon>
+    <Compile Include="Views\CreatePlaylistPage.xaml.cs">
+      <DependentUpon>CreatePlaylistPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlaylistPage.xaml.cs">
       <DependentUpon>PlaylistPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaylistTracksPage.xaml.cs">
+      <DependentUpon>PlaylistTracksPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
@@ -111,7 +114,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\CreatePlaylist.xaml">
+    <Page Include="Views\CreatePlaylistPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlaylistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlaylistTracksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

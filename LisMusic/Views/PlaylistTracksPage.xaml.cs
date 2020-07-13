@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LisMusic.Views
 {
     /// <summary>
-    /// Interaction logic for CreatePlaylist.xaml
+    /// Interaction logic for PlaylistTracksPage.xaml
     /// </summary>
-    public partial class CreatePlaylist : Page
+    public partial class PlaylistTracksPage : Page
     {
-        public CreatePlaylist()
+        public PlaylistTracksPage()
         {
             InitializeComponent();
         }
