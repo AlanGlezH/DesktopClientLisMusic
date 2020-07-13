@@ -1,4 +1,5 @@
-﻿using LisMusic.Views;
+﻿using LisMusic.ApiServices;
+using LisMusic.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace LisMusic
         {
             InitializeComponent();
             centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            ApiServiceReader.Initialize();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

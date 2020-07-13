@@ -68,7 +68,7 @@ namespace LisMusic.Views
 
         }
 
-        private void Button_register_Click(object sender, RoutedEventArgs e)
+        private async void Button_register_Click(object sender, RoutedEventArgs e)
         {
             if (!ValidateEmptyFields())
             {
@@ -99,8 +99,11 @@ namespace LisMusic.Views
 
                     };
 
-                    AccountRepository.RegisterAccount(account);
-                    MessageBox.Show("Account successfully registered");
+                    var response = await AccountRepository.RegisterAccount(account);
+                    if (response)
+                    {
+                        MessageBox.Show("Account successfully registered");
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -1,5 +1,6 @@
 ﻿using LisMusic.accounts;
 using LisMusic.accounts.domain;
+using LisMusic.ApiServices;
 using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace LisMusic.Views
         public LoginPage()
         {
             InitializeComponent();
-        
+            ApiServiceWriter.Initialize();
+
         }
 
         private void GoToRegister(object sender, RoutedEventArgs e)
@@ -45,6 +47,7 @@ namespace LisMusic.Views
                     LoginRequest loginRequest = new LoginRequest() { user = TextBox_user.Text, password = PasswordBox_password.Password };
                     var loginResponse = await AccountRepository.LoginAccount(loginRequest);
                     SingletonSesion.SetSingletonSesion(loginResponse);
+                    Console.WriteLine("mi token: " + SingletonSesion.GetSingletonSesion().access_token);
                     MainWindow main = new MainWindow();
                     main.Show();
                     Window.GetWindow(this).Close();

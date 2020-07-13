@@ -41,7 +41,7 @@ namespace LisMusic.Views
             }
         }
 
-        private void SavePlaylist()
+        private async void SavePlaylist()
         {
             Playlist playlist = new Playlist()
             {
@@ -54,9 +54,12 @@ namespace LisMusic.Views
 
             try
             {
-                PlaylistRepository.CreatePlaylist(playlist);
-                MessageBox.Show("Playlist has been created");
-                Window.GetWindow(this).Close();
+                var response = await PlaylistRepository.CreatePlaylistAsync(playlist);
+                if (response)
+                {
+                    MessageBox.Show("Playlist has been created");
+                    Window.GetWindow(this).Close();
+                }
             }
             catch (Exception ex)
             {

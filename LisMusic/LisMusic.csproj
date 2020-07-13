@@ -48,6 +48,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,6 +75,8 @@
     <Compile Include="accounts\domain\LoginResponse.cs" />
     <Compile Include="albums\AlbumRepository.cs" />
     <Compile Include="albums\domain\Album.cs" />
+    <Compile Include="ApiServices\ApiServiceReader.cs" />
+    <Compile Include="ApiServices\ApiServiceWriter.cs" />
     <Compile Include="FloatingWindow.xaml.cs">
       <DependentUpon>FloatingWindow.xaml</DependentUpon>
     </Compile>

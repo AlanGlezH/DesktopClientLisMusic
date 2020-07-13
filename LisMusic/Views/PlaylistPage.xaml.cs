@@ -33,7 +33,15 @@ namespace LisMusic.Views
 
         private async void LoadPlaylists()
         {
-            ListViewPlaylists.ItemsSource = await PlaylistRepository.GetPlaylistsOfAccount();
+            try
+            {
+                ListViewPlaylists.ItemsSource = await PlaylistRepository.GetPlaylistsOfAccount();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
 
         }
 
