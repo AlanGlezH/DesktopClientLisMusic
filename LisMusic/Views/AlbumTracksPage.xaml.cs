@@ -26,6 +26,7 @@ namespace LisMusic.Views
             InitializeComponent();
             TextBlock_name_album.Text = album.title;
             TextBlock_artist_name.Text = album.artistName;
+            Image_cover_album.Source = album.coverImage;
         }
     }
 }

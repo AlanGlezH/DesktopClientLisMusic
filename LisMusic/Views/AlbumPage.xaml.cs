@@ -1,4 +1,6 @@
 ﻿using LisMusic.albums;
+using LisMusic.albums.domain;
+using LisMusic.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
