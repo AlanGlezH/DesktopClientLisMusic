@@ -16,9 +16,11 @@ namespace LisMusic.tracks.domain
         public bool avaible { get; set; }
         public int indexRow { get; set; }
 
+        public string artist_name { get; set; }
 
 
-        public Track(string idTrack, string title, double duration, int reproductions, string fileTrack, bool avaible)
+
+        public Track(string idTrack, string title, double duration, int reproductions, string fileTrack, bool avaible, string artist_name)
         {
             this.idTrack = idTrack;
             this.title = title;
@@ -27,6 +29,7 @@ namespace LisMusic.tracks.domain
             this.reproductions = reproductions;
             this.fileTrack = fileTrack;
             this.avaible = avaible;
+            this.artist_name = artist_name;
         }
     }
 }

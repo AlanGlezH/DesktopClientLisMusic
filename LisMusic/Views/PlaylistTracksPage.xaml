@@ -25,7 +25,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                 <Button
-                x:Name="Button_play_tracks" Margin="20,0,0,0" VerticalAlignment="Center"
+                x:Name="Button_play_tracks" Margin="100,0,0,0" VerticalAlignment="Center"
                 Foreground="{DynamicResource TextColor}"
                 Background="{DynamicResource SecondaryColor}"
                 BorderBrush="{DynamicResource SecondaryColor}"
@@ -36,23 +36,37 @@
         </StackPanel>
 
         <ListView x:Name="ListView_tracks_album" Grid.Row="1"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
-                  HorizontalAlignment="Center" Margin="80,0,0,0" Foreground="{DynamicResource TextColor}"  >
+                  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource TextColor}"  >
             <ListView.View >
                 <GridView>
-
-                    <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="200">
+                    <GridViewColumn DisplayMemberBinding="{Binding indexRow}" Width="auto">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Title" Foreground="{DynamicResource TextColor}" ></GridViewColumnHeader>
+                            <GridViewColumnHeader Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False" ></GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding artist}" Width="200">
+                    <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="400">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Artist" Foreground="{DynamicResource TextColor}" ></GridViewColumnHeader>
+                            <GridViewColumnHeader Content="Title" Foreground="{DynamicResource TextColor}"
+                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding reproductions}"  Width="200">
+                    <GridViewColumn DisplayMemberBinding="{Binding artist_name}" Width="auto">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Reproductions" Foreground="{DynamicResource TextColor}" ></GridViewColumnHeader>
+                            <GridViewColumnHeader Content="Artist" Foreground="{DynamicResource TextColor}" 
+                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding duration}"  Width="auto">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Duration" Foreground="{DynamicResource TextColor}" 
+                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding reproductions}"  Width="auto">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}"
+                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                 </GridView>
