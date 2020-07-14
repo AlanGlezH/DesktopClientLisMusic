@@ -31,7 +31,7 @@
         <ScrollViewer Grid.Row="2">
             <StackPanel>
                 <StackPanel Margin="20 0">
-                    <ListView x:Name="ListViewPlaylists" ItemsSource="{Binding Playlist}">
+                    <ListView x:Name="ListViewPlaylists" ItemsSource="{Binding Playlist}" MouseDoubleClick="ListViewPlaylists_MouseDoubleClick">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border Width="150" Height="200" Padding="0">

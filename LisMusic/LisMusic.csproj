@@ -89,6 +89,9 @@
     <Compile Include="playlists\PlaylistRepository.cs" />
     <Compile Include="Utils\Encoder.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />
+    <Compile Include="Views\AlbumTracksPage.xaml.cs">
+      <DependentUpon>AlbumTracksPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreatePlaylistPage.xaml.cs">
       <DependentUpon>CreatePlaylistPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
     <Page Include="Views\AlbumPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlbumTracksPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CreatePlaylistPage.xaml">
       <SubType>Designer</SubType>

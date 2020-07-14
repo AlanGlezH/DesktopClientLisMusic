@@ -1,4 +1,4 @@
-﻿using LisMusic.playlists.domain;
+﻿using LisMusic.albums.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +17,15 @@ using System.Windows.Shapes;
 namespace LisMusic.Views
 {
     /// <summary>
-    /// Interaction logic for PlaylistTracksPage.xaml
+    /// Interaction logic for AlbumTracks.xaml
     /// </summary>
-    public partial class PlaylistTracksPage : Page
+    public partial class AlbumTracksPage : Page
     {
-        public PlaylistTracksPage(Playlist playlist)
+        public AlbumTracksPage(Album album)
         {
             InitializeComponent();
-            TextBlock_playlist_name.Text = playlist.title;
-            TextBlock_owner.Text = playlist.owner;
-            Image_cover_playlist.Source = playlist.coverImage;
-             
+            TextBlock_name_album.Text = album.title;
+            TextBlock_artist_name.Text = album.artistName;
         }
     }
 }

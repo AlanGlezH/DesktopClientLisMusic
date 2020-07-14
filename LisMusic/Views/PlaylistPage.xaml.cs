@@ -58,5 +58,14 @@ namespace LisMusic.Views
             LoadPlaylists();
 
         }
+
+        private void ListViewPlaylists_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var playlist = (Playlist)ListViewPlaylists.SelectedValue;
+            if (playlist != null)
+            {
+                NavigationService.Navigate(new PlaylistTracksPage(playlist));
+            }
+        }
     }
 }

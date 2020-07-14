@@ -1,4 +1,5 @@
 ﻿using LisMusic.albums;
+using LisMusic.albums.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,15 @@ namespace LisMusic.Views
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Please reload");
+            }
+        }
+
+        private void ListViewAlbums_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var album = (Album)ListViewAlbums.SelectedItem;
+            if (ListViewAlbums.SelectedValue != null)
+            {
+                NavigationService.Navigate(new AlbumTracksPage(album));
             }
         }
     }
