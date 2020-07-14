@@ -1,4 +1,6 @@
 ﻿using LisMusic.albums.domain;
+using LisMusic.tracks;
+using LisMusic.tracks.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +23,28 @@ namespace LisMusic.Views
     /// </summary>
     public partial class AlbumTracksPage : Page
     {
+        private Album album;
+        private List<Track> tracks;
         public AlbumTracksPage(Album album)
         {
             InitializeComponent();
+            this.album = album;
             TextBlock_name_album.Text = album.title;
             TextBlock_artist_name.Text = album.artistName;
             Image_cover_album.Source = album.coverImage;
+            TextBlock_gender.Text = album.genderName;
+            LoadTracks();
+        }
+
+        public async void LoadTracks()
+        {
+            tracks = await TrackRepository.GetTracksAlbum(album.idAlbum);
+            foreach (var track in tracks)
+            {
+                track.indexRow = tracks.IndexOf(track) + 1;
+            }
+
+            ListView_tracks.ItemsSource = tracks;
         }
     }
 }
