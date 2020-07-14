@@ -13,9 +13,11 @@ namespace LisMusic.Media
 {
     class MediaRepository
     {
-        public static async Task<BitmapImage> GetImage()
+        public static async Task<BitmapImage> GetImage(string cover)
         {
-            string path = "media/playlists/defaultPlaylistCover.jpeg";
+            string[] words = cover.Split('/');
+
+            string path = "media/playlists/" + words[words.Length - 1];
 
             BitmapImage bitmapImage = new BitmapImage();
             using (var response = await ApiServiceReader.ApiClient.GetAsync(path))

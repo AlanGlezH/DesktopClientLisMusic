@@ -19,9 +19,9 @@
         <TextBlock Text="Create Playlist" FontSize="30" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" >
             <StackPanel>
-                <Image Source="/Resources/Img/defaultPlaylistCover.jpeg"  Width="200" Height="180" Margin="10"/>
-                <Button Foreground="{DynamicResource TextColor}" Padding="0" Background="Transparent" BorderBrush="{DynamicResource SecondaryColor}" 
-                        Height="40" Width="150">
+                <Image x:Name="Image_cover_playlist" Source="/Resources/Img/defaultPlaylistCover.jpeg"  Width="200" Height="180" Margin="10"/>
+                <Button x:Name="Button_upload_file" Foreground="{DynamicResource TextColor}" Padding="0" Background="Transparent" BorderBrush="{DynamicResource SecondaryColor}" 
+                        Height="40" Width="150" Click="Button_upload_file_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="FileUpload" Width="30" Height="30"/>
                         <TextBlock Text="Upload File " FontSize="18" Foreground="{DynamicResource TextColor}" Margin="10,0,0,0"/>

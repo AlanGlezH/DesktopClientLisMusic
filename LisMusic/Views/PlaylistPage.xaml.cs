@@ -39,7 +39,7 @@ namespace LisMusic.Views
                 List<Playlist> playlists = await PlaylistRepository.GetPlaylistsOfAccount();
                 foreach (var playlist in playlists)
                 {
-                    playlist.coverImage = await MediaRepository.GetImage();
+                    playlist.coverImage = await MediaRepository.GetImage(playlist.cover);
                 }
                 ListViewPlaylists.ItemsSource = playlists;
             }

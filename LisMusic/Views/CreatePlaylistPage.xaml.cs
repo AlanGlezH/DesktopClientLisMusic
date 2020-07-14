@@ -1,20 +1,11 @@
 ﻿using LisMusic.playlists;
 using LisMusic.playlists.domain;
 using LisMusic.Utils;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LisMusic.Views
 {
@@ -24,6 +15,7 @@ namespace LisMusic.Views
     public partial class CreatePlaylistPage : Page
     {
         private string idAccount;
+        string absolutePathCover;
         public CreatePlaylistPage()
         {
             InitializeComponent();
@@ -43,9 +35,14 @@ namespace LisMusic.Views
 
         private async void SavePlaylist()
         {
+            string coverPlaylist = "";
+            if(absolutePathCover != null)
+            {
+                coverPlaylist = Utils.Encoder.EncodeBase64(absolutePathCover);
+            }
             Playlist playlist = new Playlist()
             {
-                cover = "DefaultPlaylistCover.jpg",
+                cover = coverPlaylist,
                 idAccount = idAccount,
                 idPlaylistType = 4,
                 title = TextBox_title_playlist.Text,
@@ -79,6 +76,24 @@ namespace LisMusic.Views
             return isPublic;
         }
 
-        
+        private void Button_upload_file_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            try
+            {
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    string image = openFileDialog.FileName;
+                    absolutePathCover = image;
+                    Image_cover_playlist.Source = new BitmapImage(new Uri(image, UriKind.Absolute)); ;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Only images are accepted");
+
+            }
+        }
     }
 }
