@@ -80,6 +80,7 @@
     <Compile Include="FloatingWindow.xaml.cs">
       <DependentUpon>FloatingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Media\MediaRepository.cs" />
     <Compile Include="playlists\domain\Playlist.cs" />
     <Compile Include="playlists\PlaylistRepository.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />

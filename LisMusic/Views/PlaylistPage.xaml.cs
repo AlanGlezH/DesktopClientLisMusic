@@ -1,4 +1,5 @@
-﻿using LisMusic.playlists;
+﻿using LisMusic.Media;
+using LisMusic.playlists;
 using LisMusic.playlists.domain;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,12 @@ namespace LisMusic.Views
         {
             try
             {
-                ListViewPlaylists.ItemsSource = await PlaylistRepository.GetPlaylistsOfAccount();
+                List<Playlist> playlists = await PlaylistRepository.GetPlaylistsOfAccount();
+                foreach (var playlist in playlists)
+                {
+                    playlist.coverImage = await MediaRepository.GetImage();
+                }
+                ListViewPlaylists.ItemsSource = playlists;
             }
             catch(Exception ex)
             {
@@ -45,7 +51,7 @@ namespace LisMusic.Views
 
         }
 
-        private async void Button_create_playlist_Click(object sender, RoutedEventArgs e)
+        private void Button_create_playlist_Click(object sender, RoutedEventArgs e)
         {
             FloatingWindow floating = new FloatingWindow();
             floating.ShowDialog();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LisMusic.Media;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,9 @@ namespace LisMusic.playlists.domain
         public int idPlaylistType { get; set; }
         public string idAccount { get; set; }
         public string owner { get; set; }
+        public BitmapImage coverImage { get; set; }
+        
+            
     
 
 
@@ -31,10 +35,12 @@ namespace LisMusic.playlists.domain
             this.idPlaylistType = idPlaylistType;
             this.idAccount = idAccount;
             this.owner = owner;
+            
         }
 
         public Playlist()
         {
         }
+
     }
 }
