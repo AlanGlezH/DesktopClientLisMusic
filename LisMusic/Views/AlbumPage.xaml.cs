@@ -1,5 +1,4 @@
 ﻿using LisMusic.albums;
-using LisMusic.albums.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +32,13 @@ namespace LisMusic.Views
         {
             try
             {
-                ListViewAlbums.ItemsSource = await AlbumRepository.GetAlbumsLikeOfAccount();
+                string typeImage = "albums";
+                List<Album> albums = await AlbumRepository.GetAlbumsLikeOfAccount();
+                foreach (var album in albums)
+                {
+                    album.coverImage = await MediaRepository.GetImage(album.cover,typeImage);
+                }
+                ListViewAlbums.ItemsSource = albums;
             }
             catch (Exception ex)
             {
