@@ -36,10 +36,11 @@ namespace LisMusic.Views
         {
             try
             {
+                string typeImage = "playlists";
                 List<Playlist> playlists = await PlaylistRepository.GetPlaylistsOfAccount();
                 foreach (var playlist in playlists)
                 {
-                    playlist.coverImage = await MediaRepository.GetImage(playlist.cover);
+                    playlist.coverImage = await MediaRepository.GetImage(playlist.cover, typeImage);
                 }
                 ListViewPlaylists.ItemsSource = playlists;
             }

@@ -33,7 +33,7 @@
                                                 <DropShadowEffect ShadowDepth="1"/>
                                             </Border.Effect>
                                             <Border.Background>
-                                                <ImageBrush ImageSource="{Binding cover}"/>
+                                                <ImageBrush ImageSource="{Binding coverImage}"/>
                                             </Border.Background>
                                         </Border>
                                         <TextBlock Margin="5" Text="{Binding title}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
