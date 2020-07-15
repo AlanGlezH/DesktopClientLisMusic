@@ -81,6 +81,8 @@
     <Compile Include="albums\domain\Album.cs" />
     <Compile Include="ApiServices\ApiServiceReader.cs" />
     <Compile Include="ApiServices\ApiServiceWriter.cs" />
+    <Compile Include="artists\ArtistRepository.cs" />
+    <Compile Include="artists\domain\Artist.cs" />
     <Compile Include="FloatingWindow.xaml.cs">
       <DependentUpon>FloatingWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +95,12 @@
     <Compile Include="Utils\SingletonSesion.cs" />
     <Compile Include="Views\AlbumTracksPage.xaml.cs">
       <DependentUpon>AlbumTracksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtistAlbumsPage.xaml.cs">
+      <DependentUpon>ArtistAlbumsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtistPage.xaml.cs">
+      <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreatePlaylistPage.xaml.cs">
       <DependentUpon>CreatePlaylistPage.xaml</DependentUpon>
@@ -142,6 +150,14 @@
     <Page Include="Views\AlbumTracksPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ArtistAlbumsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArtistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreatePlaylistPage.xaml">
       <SubType>Designer</SubType>

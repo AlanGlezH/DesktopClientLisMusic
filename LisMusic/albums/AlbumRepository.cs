@@ -38,5 +38,24 @@ namespace LisMusic.albums
             }
         }
 
+        public static async Task<List<Album>> GetArtistAlbums(string idArtist)
+        {
+            string path = "artist/" + idArtist + "/album";
+            List<Album> albums;
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    albums = await response.Content.ReadAsAsync<List<Album>>();
+                    return albums;
+                } else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+
     }
 }

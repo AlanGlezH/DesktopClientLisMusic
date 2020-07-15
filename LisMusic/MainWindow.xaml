@@ -132,7 +132,7 @@
                             <TextBlock Text="Albums" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemArtist" Height="60">
+                    <ListViewItem x:Name="ItemArtists" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Artist" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Artists" VerticalAlignment="Center"  Margin="20 10"/>

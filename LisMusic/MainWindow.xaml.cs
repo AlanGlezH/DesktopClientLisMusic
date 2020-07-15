@@ -54,6 +54,10 @@ namespace LisMusic
                 case "ItemAlbums":
                     centralFrame.Navigate(new AlbumPage());
                     break;
+                case "ItemArtists":
+                    centralFrame.Navigate(new ArtistPage());
+                    break;
+
 
 
 

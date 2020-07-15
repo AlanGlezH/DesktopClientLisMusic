@@ -17,7 +17,7 @@ namespace LisMusic.accounts
 
         public static async Task<LoginResponse> LoginAccount(LoginRequest loginRequest)
         {
-            string path = "login";
+            string path = "/login";
             LoginResponse loginResponse = null;
             using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.PostAsJsonAsync(path, loginRequest))
             {
