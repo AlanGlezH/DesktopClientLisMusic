@@ -1,4 +1,5 @@
-﻿using LisMusic.Views;
+﻿using LisMusic.RpcService;
+using LisMusic.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Thrift.Protocol;
+using Thrift.Transport;
+using Thrift.Transport.Client;
 
 namespace LisMusic
 {
@@ -26,9 +30,18 @@ namespace LisMusic
             InitializeComponent();
             centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             centralFrame.Navigate(new LoginPage());
+            RpcStreamingService.Connect();
+            
+
+            
         }
 
-
-        
+        private async void TestRpc()
+        {
+            
+            await RpcStreamingService.GetTrackAudio("track1");
+        }
     }
+
+
 }
