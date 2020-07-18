@@ -10,7 +10,6 @@ namespace LisMusic.tracks.domain
     {
         public string idTrack { get; set; }
         public string title { get; set; }
-        public string duration { get; set; }
         public int reproductions { get; set; }
         public string fileTrack { get; set; }
         public bool avaible { get; set; }
@@ -21,12 +20,10 @@ namespace LisMusic.tracks.domain
 
 
 
-        public Track(string idTrack, string title, double duration, int reproductions, string fileTrack, bool avaible, string artist_name)
+        public Track(string idTrack, string title, int reproductions, string fileTrack, bool avaible, string artist_name)
         {
             this.idTrack = idTrack;
             this.title = title;
-            TimeSpan result = TimeSpan.FromSeconds(duration);
-            this.duration = result.ToString("mm':'ss"); ;
             this.reproductions = reproductions;
             this.fileTrack = fileTrack;
             this.avaible = avaible;
