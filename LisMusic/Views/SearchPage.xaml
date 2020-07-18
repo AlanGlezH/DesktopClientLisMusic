@@ -168,6 +168,12 @@
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
                             </GridViewColumn.Header>
                         </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding duration}" Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Duration" Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False"></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding reproductions}" Width="auto">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}" 
