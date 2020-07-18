@@ -1,7 +1,9 @@
 ﻿using LisMusic.RpcService;
 using LisMusic.Views;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,16 +32,22 @@ namespace LisMusic
             InitializeComponent();
             centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             centralFrame.Navigate(new LoginPage());
-            RpcStreamingService.Connect();
-            
+            //RpcStreamingService.Connect();
 
-            
+            //TestRpc();
+
+
         }
 
         private async void TestRpc()
         {
             
-            await RpcStreamingService.GetTrackAudio("track1");
+            byte[] bytes = await RpcStreamingService.GetTrackAudio("track1");
+            var mp3Reader = new Mp3FileReader(new MemoryStream(bytes));
+            WaveStream wave32 = new WaveChannel32(mp3Reader);
+            WaveOutEvent _waveOutEvent = new WaveOutEvent();
+            _waveOutEvent.Init(wave32);
+            _waveOutEvent.Play();
         }
     }
 

@@ -44,23 +44,23 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="400">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Button x:Name="track_previous" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}">
+                    <Button x:Name="Button_track_previous" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}" Click="Button_track_previous_Click">
                         <materialDesign:PackIcon Kind="SkipPrevious"  Height="50" Width="50" />
                     </Button>
-                    <Button x:Name="track_playPause" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}">
-                        <materialDesign:PackIcon Kind="PlayArrow"  Height="50" Width="50" />
+                    <Button x:Name="Button_track_playPause" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}" Click="Button_track_playPause_Click">
+                        <materialDesign:PackIcon x:Name="icon_playPause_button" Kind="PlayArrow"  Height="50" Width="50" />
                     </Button>
-                    <Button x:Name="track_next" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}">
-                        <materialDesign:PackIcon Kind="SkipNext"  Height="50" Width="50" />
+                    <Button x:Name="Button_track_next" Height="50" Width="50" Padding="0" Foreground="{DynamicResource TextColor}" Click="Button_track_next_Click">
+                        <materialDesign:PackIcon  Kind="SkipNext"  Height="50" Width="50" />
                     </Button>
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                     <TextBlock x:Name="TextBlock_initial_duration" Text="0:00" Foreground="{DynamicResource TextColor}"/>
-                    <Slider x:Name="Slider_track_duration" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
+                    <Slider x:Name="Slider_track_duration" Orientation="Horizontal" Maximum="100" Minimum="0" Value="0"
                             Width="300" Foreground="{DynamicResource SecondaryColor}"
                             VerticalAlignment="Center" Margin="10,0,10,0"/>
-                    <TextBlock  x:Name="TextBlock_final_duration" Text="3:00" Foreground="{DynamicResource TextColor}"/>
+                    <TextBlock  x:Name="TextBlock_final_duration" Text="00:00" Foreground="{DynamicResource TextColor}"/>
                 </StackPanel>
             </StackPanel>
            
@@ -72,7 +72,7 @@
                     </Button>
                     <Slider x:Name="Slider_volume" Orientation="Horizontal" Maximum="100" Minimum="0" Value="50"
                             Width="100" Foreground="{DynamicResource SecondaryColor}"
-                            VerticalAlignment="Center"/>
+                            VerticalAlignment="Center" ValueChanged="Slider_volume_ValueChanged"/>
                 </StackPanel>
                 
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">

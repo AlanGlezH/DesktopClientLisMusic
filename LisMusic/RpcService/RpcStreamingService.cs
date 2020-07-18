@@ -22,8 +22,6 @@ namespace LisMusic.RpcService
                 TProtocol protocol = new TBinaryProtocol(transport);
                 client = new StreamingService.Client(protocol);
 
-                MessageBox.Show("Rpc client is running");
-
             }
             catch (Exception ex)
             {
