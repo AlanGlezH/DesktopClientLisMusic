@@ -1,6 +1,7 @@
 ﻿using LisMusic.ApiServices;
 using LisMusic.artists.domain;
 using LisMusic.Utils;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,27 @@ namespace LisMusic.artists
                     throw new Exception(message);
                 }
             }
-
         }
 
+        public static async Task<List<Artist>> SearchArtist(string artistName)
+        {
+            string path = "artists/" + artistName;
+            List<Artist> artists;
+
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    artists = await response.Content.ReadAsAsync<List<Artist>>();
+                    return artists;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
     }
 }

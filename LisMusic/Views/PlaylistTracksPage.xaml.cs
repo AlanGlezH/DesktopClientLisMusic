@@ -47,5 +47,13 @@ namespace LisMusic.Views
             }
             ListView_tracks_album.ItemsSource = tracks;
         }
+
+        private void Button_back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
     }
 }

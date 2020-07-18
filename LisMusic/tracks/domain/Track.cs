@@ -15,8 +15,9 @@ namespace LisMusic.tracks.domain
         public string fileTrack { get; set; }
         public bool avaible { get; set; }
         public int indexRow { get; set; }
-
         public string artist_name { get; set; }
+        public string albumTitle { get; set; }
+        public string artistName { get; set; }
 
 
 

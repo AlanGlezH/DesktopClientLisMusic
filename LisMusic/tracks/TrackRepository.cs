@@ -51,5 +51,26 @@ namespace LisMusic.tracks
                 }
             }
         }
+
+        public static async Task<List<Track>> SearchTracks(string trackTitle)
+        {
+            string path = "tracks/" + trackTitle;
+            List<Track> tracks;
+
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    tracks = await response.Content.ReadAsAsync<List<Track>>();
+                    return tracks;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
     }
 }

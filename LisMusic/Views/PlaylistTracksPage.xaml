@@ -15,6 +15,8 @@
             <RowDefinition Height=".5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="Button_back" Content="Back" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0"
+                Background="{DynamicResource SecondaryColor}" BorderBrush="{DynamicResource SecondaryColor }" Click="Button_back_Click"></Button>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Width="600">
                 <Image x:Name="Image_cover_playlist" VerticalAlignment="Center" Margin="30,0,0,0" Width="150" Height="150"/>
