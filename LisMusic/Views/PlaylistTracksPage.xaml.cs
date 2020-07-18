@@ -1,6 +1,8 @@
-﻿using LisMusic.playlists.domain;
+﻿using LisMusic.player;
+using LisMusic.playlists.domain;
 using LisMusic.tracks;
 using LisMusic.tracks.domain;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +48,19 @@ namespace LisMusic.Views
                 track.indexRow = tracks.IndexOf(track) + 1;
             }
             ListView_tracks_album.ItemsSource = tracks;
+        }
+
+        private async void ListView_tracks_album_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Track track = (Track)ListView_tracks_album.SelectedValue;
+            if(track != null)
+            {
+                var result = await Player.UploadTrackAsync(track);
+                if (result)
+                {
+                    SingletonMainWindows.GetSingletonWindow().UpdateInfoPlayer(track);
+                }
+            }
         }
     }
 }

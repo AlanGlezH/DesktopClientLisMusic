@@ -86,7 +86,7 @@ namespace LisMusic.Views
                     {
                         birthday = DatePicker_birthday.SelectedDate.Value.ToString("yyyy-MM-dd"),
                         contentCreator = false,
-                        cover = "defaultAccountCover.jpg",
+                        cover = null,
                         created = DateTime.Now.ToString("yyyy-MM-dd"),
                         email = TextBox_email.Text,
                         firstName = TextBox_first_name.Text,
