@@ -1,0 +1,190 @@
+﻿<Page x:Class="LisMusic.Views.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LisMusic.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="990"
+      Background="{DynamicResource PrimaryAuxColor}"
+      Title="SearchPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        
+       
+        <TextBlock Grid.Row="0" Text="Search" FontSize="35" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" Width="130" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20,0">
+            
+            <ComboBox x:Name="ComboBox_filter" Height="auto" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,15,0,0" 
+                      materialDesign:HintAssist.Foreground="White"  materialDesign:TextFieldAssist.UnderlineBrush="White" Foreground="White"
+                      materialDesign:ColorZoneAssist.Mode="Inverted">
+                <ComboBoxItem IsSelected="True">
+                    Tracks
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Artists
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Albums
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Playlists
+                </ComboBoxItem>
+            </ComboBox>
+            <TextBox x:Name="TextBox_search" materialDesign:HintAssist.Hint="Search" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="auto"
+                     Foreground="{DynamicResource TextColor}" materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource TextColor}"
+                     materialDesign:HintAssist.Foreground="White" Margin="20,0,0,0" />
+            <Button  x:Name="Button_search" VerticalAlignment="Center" Background="{DynamicResource SecondaryColor}"  BorderBrush="{DynamicResource SecondaryColor}"
+                     Style="{StaticResource MaterialDesignFloatingActionAccentButton}" ToolTip="Buscar"  Height="30" Width="30" Margin="20,20,0,0" Click="Button_search_Click"  >
+                <materialDesign:PackIcon Kind="Search" Height="20" Width="20" />
+            </Button>
+
+        </StackPanel>
+        
+        <ScrollViewer Grid.Row="2" x:Name="ScrollViewer_artists" MouseDoubleClick="ScrollViewer_artists_MouseDoubleClick" >
+            <StackPanel>
+                <StackPanel Margin="20, 0">
+                    <ListView x:Name="ListView_artists" ItemsSource="{Binding Artist}" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="150" Height="200" Padding="0">
+                                    <StackPanel>
+                                        <Border Width="150" Height="150" CornerRadius="5" >
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding coverImage}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding name}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <ScrollViewer Grid.Row="2" x:Name="ScrollViewer_albums" MouseDoubleClick="ScrollViewer_albums_MouseDoubleClick" >
+            <StackPanel>
+                <StackPanel Margin="20,0">
+                    <ListView x:Name="ListView_albums" ItemsSource="{Binding Album}" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="150" Height="200" Padding="0">
+                                    <StackPanel>
+                                        <Border Width="150" Height="150" CornerRadius="5" >
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding coverImage}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding title}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                        <TextBlock Margin="5" Text="{Binding artistName}" Foreground="{DynamicResource TextColor}" FontSize="15"  FontFamily="Franklin Gothic Medium"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+
+        <ScrollViewer Grid.Row="2" x:Name="ScrollViewer_playlists" MouseDoubleClick="ScrollViewer_playlists_MouseDoubleClick">
+            <StackPanel>
+                <StackPanel Margin="20,0">
+                    <ListView x:Name="ListView_playlists" ItemsSource="{Binding Playlist}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="150" Height="200" Padding="0">
+                                    <StackPanel>
+                                        <Border Width="150" Height="150" CornerRadius="5" >
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="1"/>
+                                            </Border.Effect>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding coverImage}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Margin="5" Text="{Binding title}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                        <TextBlock Margin="5 0" Text="{Binding owner}" Foreground="{DynamicResource TextColor}" FontSize="15"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Margin="10">
+            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
+                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}" Visibility="Hidden">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="300">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Title" Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False" ></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding albumTitle}"   Width="200">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Album" Foreground="{DynamicResource TextColor}" 
+                                                    IsHitTestVisible="False" ></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding artistName}"   Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Artist" Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False" ></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding duration}" Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Duration" Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False"></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding reproductions}" Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}" 
+                                                  IsHitTestVisible="False" ></GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

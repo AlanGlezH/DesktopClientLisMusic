@@ -36,37 +36,41 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="ListView_tracks" Grid.Row="1"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
-                  HorizontalAlignment="Center" Margin="0" Foreground="{DynamicResource TextColor}"  >
-            <ListView.View >
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding indexRow}" Width="auto">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Foreground="{DynamicResource TextColor}" 
+        <StackPanel Grid.Row="1" Margin="10">
+            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
+                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}"  >
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding indexRow}" Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Foreground="{DynamicResource TextColor}" 
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="500">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Title" Foreground="{DynamicResource TextColor}" 
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="500">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Title" Foreground="{DynamicResource TextColor}" 
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding duration}" Width="200">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Duration" Foreground="{DynamicResource TextColor}" 
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding duration}" Width="200">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Duration" Foreground="{DynamicResource TextColor}" 
                                                   IsHitTestVisible="False"></GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding reproductions}" Width="auto">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}" 
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding reproductions}" Width="auto">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}" 
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
+        </StackPanel>
+
+        
     </Grid>
 </Page>

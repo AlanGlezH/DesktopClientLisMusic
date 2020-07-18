@@ -57,7 +57,27 @@ namespace LisMusic.playlists
                     throw new Exception(message);
                 }
             }
+        }
 
+        public static async Task<List<Playlist>> SearchPlaylists(string playlistTitle)
+        {
+            string path = "playlists/" + playlistTitle;
+            List<Playlist> playlists;
+
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    playlists = await response.Content.ReadAsAsync<List<Playlist>>();
+                    return playlists;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
         }
     }
 }

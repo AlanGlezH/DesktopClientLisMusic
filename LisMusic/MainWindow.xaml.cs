@@ -104,6 +104,9 @@ namespace LisMusic
                 case "ItemHome":
          
                     break;
+                case "ItemSearch":
+                    centralFrame.Navigate(new SearchPage());
+                    break;
                 case "ItemPlaylist":
                     centralFrame.Navigate(new PlaylistPage());
                     break;

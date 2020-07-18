@@ -53,5 +53,13 @@ namespace LisMusic.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Button_back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
     }
 }
