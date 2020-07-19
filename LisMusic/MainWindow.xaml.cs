@@ -1,4 +1,5 @@
 ﻿using LisMusic.ApiServices;
+using LisMusic.Media;
 using LisMusic.player;
 using LisMusic.RpcService;
 using LisMusic.tracks.domain;
@@ -53,11 +54,14 @@ namespace LisMusic
             loadProgressTrackTimer.Interval = new TimeSpan(0, 0, 0, 1);
         }
 
-        public void UpdateInfoPlayer(Track track)
+        public async void UpdateInfoPlayer(Track track)
         {
+            string typeImage = "albums";
             TextBlock_track_name.Text = track.title;
             TextBlock_artist_name.Text = track.artistName;
             StartTrack();
+            track.album.coverImage = await MediaRepository.GetImage(track.album.cover, typeImage);
+            image_cover_player.Source = track.album.coverImage;
         }
 
 
@@ -169,8 +173,7 @@ namespace LisMusic
             Track track = await Player.UploadNextTrack();
             if (track != null)
             {
-                TextBlock_track_name.Text = track.title;
-                TextBlock_artist_name.Text = track.artist_name;
+                UpdateInfoPlayer(track);
                 StartTrack();
             }
         }

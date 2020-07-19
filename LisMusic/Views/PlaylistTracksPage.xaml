@@ -53,7 +53,7 @@
                                                    IsHitTestVisible="False" ></GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding artistName}" Width="auto">
+                    <GridViewColumn DisplayMemberBinding="{Binding album.artist.name}" Width="auto">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Artist" Foreground="{DynamicResource TextColor}" 
                                                    IsHitTestVisible="False" ></GridViewColumnHeader>

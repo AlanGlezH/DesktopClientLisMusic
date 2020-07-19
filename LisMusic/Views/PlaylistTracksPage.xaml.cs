@@ -42,12 +42,18 @@ namespace LisMusic.Views
 
         public async void LoadTracks()
         {
-            tracks = await TrackRepository.GetTracksPlaylist(playlist.idPlaylist);
-            foreach (var track in tracks)
+            try
             {
-                track.indexRow = tracks.IndexOf(track) + 1;
+                tracks = await TrackRepository.GetTracksPlaylist(playlist.idPlaylist);
+                foreach (var track in tracks)
+                {
+                    track.indexRow = tracks.IndexOf(track) + 1;
+                }
+                ListView_tracks_album.ItemsSource = tracks;
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
-            ListView_tracks_album.ItemsSource = tracks;
         }
 
         private async void ListView_tracks_album_MouseDoubleClick(object sender, MouseButtonEventArgs e)
