@@ -37,7 +37,7 @@
                                             </Border.Background>
                                         </Border>
                                         <TextBlock Margin="5" Text="{Binding title}" Foreground="{DynamicResource TextColor}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                                        <TextBlock Margin="5" Text="{Binding artistName}" Foreground="{DynamicResource TextColor}" FontSize="15"  FontFamily="Franklin Gothic Medium"/>
+                                        <TextBlock Margin="5" Text="{Binding artist.name}" Foreground="{DynamicResource TextColor}" FontSize="15"  FontFamily="Franklin Gothic Medium"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

@@ -1,5 +1,6 @@
 ﻿using LisMusic.ApiServices;
 using LisMusic.tracks.domain;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace LisMusic.tracks
 {
     class TrackRepository
     {
+        private static string idAccount = SingletonSesion.GetSingletonSesion().account.idAccount;
         public static async Task<List<Track>> GetTracksAlbum(string idAlbum)
         {
             string path = "/album/" + idAlbum + "/track";
@@ -57,6 +59,26 @@ namespace LisMusic.tracks
             string path = "tracks/" + trackTitle;
             List<Track> tracks;
 
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    tracks = await response.Content.ReadAsAsync<List<Track>>();
+                    return tracks;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+
+        public static async Task<List<Track>> GetTrackAccountHistory()
+        {
+            string path = "account/" + idAccount + "/tracksHistory" ;
+            List<Track> tracks;
             using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
             {
                 if (response.IsSuccessStatusCode)

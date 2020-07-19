@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LisMusic.artists.domain;
+using LisMusic.musicgenders.domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +16,12 @@ namespace LisMusic.albums.domain
         public string cover { get; set; }
         public string publication { get; set; }
         public string recordCompany { get; set; }
-        public string genderName { get; set; }
         public int idAlbumType { get; set; }
-        public string artistName { get; set; }
+        public MusicGender musicGender { get; set; }
+        public Artist artist { get; set; }
         public BitmapImage coverImage { get; set; }
 
-        public Album(string idAlbum, string title, string cover, string publication, string recordCompany, int idAlbumType, string artistName, BitmapImage coverImage)
+        public Album(string idAlbum, string title, string cover, string publication, string recordCompany, int idAlbumType, BitmapImage coverImage, Artist artist, MusicGender musicGender)
         {
             this.idAlbum = idAlbum;
             this.title = title;
@@ -27,8 +29,9 @@ namespace LisMusic.albums.domain
             this.publication = publication;
             this.recordCompany = recordCompany;
             this.idAlbumType = idAlbumType;
-            this.artistName = artistName;
             this.coverImage = coverImage;
+            this.artist = artist;
+            this.musicGender = musicGender;
         }
 
         public Album() { }

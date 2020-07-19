@@ -61,5 +61,15 @@ namespace LisMusic.Views
                 NavigationService.GoBack();
             }
         }
+
+        private void ScrollViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var album = (Album)ListView_albums.SelectedItem;
+            if (album != null)
+            {
+                NavigationService.Navigate(new AlbumTracksPage(album));
+            }
+           
+        }
     }
 }

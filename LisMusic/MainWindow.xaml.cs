@@ -56,7 +56,7 @@ namespace LisMusic
         public void UpdateInfoPlayer(Track track)
         {
             TextBlock_track_name.Text = track.title;
-            TextBlock_artist_name.Text = track.artist_name;
+            TextBlock_artist_name.Text = track.artistName;
             StartTrack();
         }
 

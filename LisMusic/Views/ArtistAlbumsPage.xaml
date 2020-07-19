@@ -24,7 +24,7 @@
                 <TextBlock x:Name="TextBlock_description" Text="Description" TextWrapping="Wrap" FontSize="17" Foreground="{DynamicResource TextColor}" Width="700" />
             </StackPanel>
         </StackPanel>
-        <ScrollViewer Grid.Row="2">
+        <ScrollViewer Grid.Row="2" MouseDoubleClick="ScrollViewer_MouseDoubleClick">
             <StackPanel>
                 <StackPanel Margin="20 0">
                     <ListView x:Name="ListView_albums" ItemsSource="{Binding Album}">

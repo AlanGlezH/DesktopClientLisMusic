@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LisMusic.albums.domain;
+using LisMusic.musicgenders.domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,27 +12,24 @@ namespace LisMusic.tracks.domain
     {
         public string idTrack { get; set; }
         public string title { get; set; }
-        public string duration { get; set; }
         public int reproductions { get; set; }
         public string fileTrack { get; set; }
         public bool avaible { get; set; }
         public int indexRow { get; set; }
-        public string artist_name { get; set; }
+        public string duration { get; set; }
         public string albumTitle { get; set; }
         public string artistName { get; set; }
+        public Album album { get; set; }
 
-
-
-        public Track(string idTrack, string title, double duration, int reproductions, string fileTrack, bool avaible, string artist_name)
+        public Track(string idTrack, string title, double duration, int reproductions, string fileTrack, bool avaible, MusicGender musicGender, Album album)
         {
             this.idTrack = idTrack;
             this.title = title;
-            TimeSpan result = TimeSpan.FromSeconds(duration);
+            this.reproductions = reproductions; TimeSpan result = TimeSpan.FromSeconds(duration);
             this.duration = result.ToString("mm':'ss"); ;
-            this.reproductions = reproductions;
             this.fileTrack = fileTrack;
             this.avaible = avaible;
-            this.artist_name = artist_name;
+            this.album = album;
         }
     }
 }

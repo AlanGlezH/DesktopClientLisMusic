@@ -14,8 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -34,7 +33,7 @@ namespace LisMusic.Views
         {
             InitializeComponent();
     
-            
+           
         }
 
         private void HiddenLists()
@@ -43,17 +42,14 @@ namespace LisMusic.Views
             ListView_artists.Visibility = Visibility.Hidden;
             ListView_albums.Visibility = Visibility.Hidden;
             ListView_playlists.Visibility = Visibility.Hidden;
-            
             ScrollViewer_albums.Visibility = Visibility.Hidden;
             ScrollViewer_artists.Visibility = Visibility.Hidden;
             ScrollViewer_playlists.Visibility = Visibility.Hidden;
-
         }
 
         public async void SearchArtists()
         {
             try
-
             {
                 ListView_artists.Visibility = Visibility.Visible;
                 ScrollViewer_artists.Visibility = Visibility.Visible;
@@ -67,7 +63,6 @@ namespace LisMusic.Views
 
             }
             catch (Exception ex) {
-
                 MessageBox.Show(ex.Message, "Please try again");
             }
         }
