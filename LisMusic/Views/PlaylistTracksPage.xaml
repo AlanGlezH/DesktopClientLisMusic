@@ -68,8 +68,22 @@
                     <GridViewColumn DisplayMemberBinding="{Binding reproductions}"  Width="auto">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}"
-                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
+                                                   IsHitTestVisible="False" Width="auto"></GridViewColumnHeader>
                         </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
+                                    <StackPanel Width="auto">
+                                        <Button x:Name="Button_add_queue" Content="Add to Queue" Click="Button_add_queue_Click"  />
+                                        <Button x:Name="Button_generate_radio" Content="Generate radio" />
+                                        <Button x:Name="Button_add_playlist" Content="Add to playlist" />
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

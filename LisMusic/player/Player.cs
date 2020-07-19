@@ -44,6 +44,7 @@ namespace LisMusic.player
         {
             if(queueTracks.Count > 0)
             {
+                Player.StopPlayer();
                 Track track = queueTracks.Dequeue();
                 isTrackReady = false;
                 if( await Player.UploadTrackAsync(track))
@@ -112,6 +113,13 @@ namespace LisMusic.player
                 waveOutEvent.Volume = (Convert.ToSingle(volume)) / 100f;
 
             }
+        }
+
+        public static void UpdatePositionTrack(double position)
+        {
+            var totalSeconds = (position * waveStream.TotalTime.TotalSeconds) / 100;
+
+            waveStream.CurrentTime = TimeSpan.FromSeconds(totalSeconds);
         }
 
         public static bool IsTrackOver()

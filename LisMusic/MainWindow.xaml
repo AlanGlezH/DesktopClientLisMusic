@@ -59,7 +59,7 @@
                     <TextBlock x:Name="TextBlock_initial_duration" Text="0:00" Foreground="{DynamicResource TextColor}"/>
                     <Slider x:Name="Slider_track_duration" Orientation="Horizontal" Maximum="100" Minimum="0" Value="0"
                             Width="300" Foreground="{DynamicResource SecondaryColor}"
-                            VerticalAlignment="Center" Margin="10,0,10,0"/>
+                            VerticalAlignment="Center" Margin="10,0,10,0" ValueChanged="Slider_track_duration_ValueChanged"/>
                     <TextBlock  x:Name="TextBlock_final_duration" Text="00:00" Foreground="{DynamicResource TextColor}"/>
                 </StackPanel>
             </StackPanel>

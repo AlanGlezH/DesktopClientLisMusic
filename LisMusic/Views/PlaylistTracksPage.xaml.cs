@@ -70,5 +70,12 @@ namespace LisMusic.Views
                 NavigationService.GoBack();
             }
         }
+
+        private void Button_add_queue_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            Player.AddTrackToQueue(track);
+        }
     }
 }

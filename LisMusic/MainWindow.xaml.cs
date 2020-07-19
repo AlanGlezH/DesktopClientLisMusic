@@ -82,6 +82,7 @@ namespace LisMusic
             if (Player.IsTrackOver())
             {
                 StopTrack();
+                GoToNextTrack();
             }
         }
 
@@ -161,13 +162,25 @@ namespace LisMusic
             Player.UpdateVolume(Slider_volume.Value);
         }
 
-        private async void Button_track_next_Click(object sender, RoutedEventArgs e)
+        private async void GoToNextTrack()
         {
             Track track = await Player.UploadNextTrack();
-            if(track != null)
+            if (track != null)
             {
-
+                TextBlock_track_name.Text = track.title;
+                TextBlock_artist_name.Text = track.artist_name;
+                StartTrack();
             }
+        }
+
+        private void Button_track_next_Click(object sender, RoutedEventArgs e)
+        {
+            GoToNextTrack();
+        }
+
+        private void Slider_track_duration_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Player.UpdatePositionTrack(Slider_track_duration.Value);
         }
     }
 }
