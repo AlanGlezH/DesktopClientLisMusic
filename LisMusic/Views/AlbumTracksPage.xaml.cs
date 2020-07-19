@@ -30,9 +30,9 @@ namespace LisMusic.Views
             InitializeComponent();
             this.album = album;
             TextBlock_name_album.Text = album.title;
-            TextBlock_artist_name.Text = album.artistName;
+            TextBlock_artist_name.Text = album.artist.name;
             Image_cover_album.Source = album.coverImage;
-            TextBlock_gender.Text = album.genderName;
+            TextBlock_gender.Text = album.musicGender.genderName;
             LoadTracks();
         }
 
@@ -45,6 +45,15 @@ namespace LisMusic.Views
             }
 
             ListView_tracks.ItemsSource = tracks;
+        }
+
+        private void Button_back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+
         }
     }
 }

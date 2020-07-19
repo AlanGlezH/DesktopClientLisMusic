@@ -327,6 +327,7 @@
     <Compile Include="gen-netstd\TrackRequest.cs" />
     <Compile Include="gen-netstd\TrackUploaded.cs" />
     <Compile Include="Media\MediaRepository.cs" />
+    <Compile Include="musicgenders\domain\MusicGender.cs" />
     <Compile Include="player\async.cs" />
     <Compile Include="player\Player.cs" />
     <Compile Include="playlists\domain\Playlist.cs" />
