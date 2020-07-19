@@ -108,6 +108,12 @@
                 </Grid>
 
                 <ListView x:Name="ListViewMenu" Foreground="{DynamicResource TextColor}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged"  >
+                    <ListViewItem x:Name="ItemCreator" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="YoutubeCreatorStudio" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Content Creator" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem x:Name="ItemHome" Height="60" Background="{x:Null}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Home" Height="25" Width="25" Margin="10"/>
@@ -137,11 +143,12 @@
                             <materialDesign:PackIcon Kind="Artist" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Artists" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
-                    </ListViewItem> 
-                    <ListViewItem x:Name="ItemCreator" Height="60">
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemHistory" Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="YoutubeCreatorStudio" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Content Creator" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="History" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="History" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 

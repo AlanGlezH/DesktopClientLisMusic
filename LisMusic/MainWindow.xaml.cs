@@ -103,7 +103,7 @@ namespace LisMusic
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "ItemHome":
-         
+                    centralFrame.Navigate(new HomePage());
                     break;
                 case "ItemSearch":
                     centralFrame.Navigate(new SearchPage());
@@ -116,6 +116,8 @@ namespace LisMusic
                     break;
                 case "ItemArtists":
                     centralFrame.Navigate(new ArtistPage());
+                    break;
+                case "ItemHistory":
                     break;
             }
         }
