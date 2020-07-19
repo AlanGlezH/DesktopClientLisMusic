@@ -26,8 +26,22 @@ using Thrift.Processor;
 
 public partial class TrackAudio : TBase
 {
+  private string _idTrack;
   private string _trackName;
   private byte[] _audio;
+
+  public string IdTrack
+  {
+    get
+    {
+      return _idTrack;
+    }
+    set
+    {
+      __isset.idTrack = true;
+      this._idTrack = value;
+    }
+  }
 
   public string TrackName
   {
@@ -59,6 +73,7 @@ public partial class TrackAudio : TBase
   public Isset __isset;
   public struct Isset
   {
+    public bool idTrack;
     public bool trackName;
     public bool audio;
   }
@@ -87,7 +102,7 @@ public partial class TrackAudio : TBase
           case 1:
             if (field.Type == TType.String)
             {
-              TrackName = await iprot.ReadStringAsync(cancellationToken);
+              IdTrack = await iprot.ReadStringAsync(cancellationToken);
             }
             else
             {
@@ -95,6 +110,16 @@ public partial class TrackAudio : TBase
             }
             break;
           case 2:
+            if (field.Type == TType.String)
+            {
+              TrackName = await iprot.ReadStringAsync(cancellationToken);
+            }
+            else
+            {
+              await TProtocolUtil.SkipAsync(iprot, field.Type, cancellationToken);
+            }
+            break;
+          case 3:
             if (field.Type == TType.String)
             {
               Audio = await iprot.ReadBinaryAsync(cancellationToken);
@@ -128,11 +153,20 @@ public partial class TrackAudio : TBase
       var struc = new TStruct("TrackAudio");
       await oprot.WriteStructBeginAsync(struc, cancellationToken);
       var field = new TField();
+      if (IdTrack != null && __isset.idTrack)
+      {
+        field.Name = "idTrack";
+        field.Type = TType.String;
+        field.ID = 1;
+        await oprot.WriteFieldBeginAsync(field, cancellationToken);
+        await oprot.WriteStringAsync(IdTrack, cancellationToken);
+        await oprot.WriteFieldEndAsync(cancellationToken);
+      }
       if (TrackName != null && __isset.trackName)
       {
         field.Name = "trackName";
         field.Type = TType.String;
-        field.ID = 1;
+        field.ID = 2;
         await oprot.WriteFieldBeginAsync(field, cancellationToken);
         await oprot.WriteStringAsync(TrackName, cancellationToken);
         await oprot.WriteFieldEndAsync(cancellationToken);
@@ -141,7 +175,7 @@ public partial class TrackAudio : TBase
       {
         field.Name = "audio";
         field.Type = TType.String;
-        field.ID = 2;
+        field.ID = 3;
         await oprot.WriteFieldBeginAsync(field, cancellationToken);
         await oprot.WriteBinaryAsync(Audio, cancellationToken);
         await oprot.WriteFieldEndAsync(cancellationToken);
@@ -160,13 +194,16 @@ public partial class TrackAudio : TBase
     var other = that as TrackAudio;
     if (other == null) return false;
     if (ReferenceEquals(this, other)) return true;
-    return ((__isset.trackName == other.__isset.trackName) && ((!__isset.trackName) || (System.Object.Equals(TrackName, other.TrackName))))
+    return ((__isset.idTrack == other.__isset.idTrack) && ((!__isset.idTrack) || (System.Object.Equals(IdTrack, other.IdTrack))))
+      && ((__isset.trackName == other.__isset.trackName) && ((!__isset.trackName) || (System.Object.Equals(TrackName, other.TrackName))))
       && ((__isset.audio == other.__isset.audio) && ((!__isset.audio) || (TCollections.Equals(Audio, other.Audio))));
   }
 
   public override int GetHashCode() {
     int hashcode = 157;
     unchecked {
+      if(__isset.idTrack)
+        hashcode = (hashcode * 397) + IdTrack.GetHashCode();
       if(__isset.trackName)
         hashcode = (hashcode * 397) + TrackName.GetHashCode();
       if(__isset.audio)
@@ -179,6 +216,13 @@ public partial class TrackAudio : TBase
   {
     var sb = new StringBuilder("TrackAudio(");
     bool __first = true;
+    if (IdTrack != null && __isset.idTrack)
+    {
+      if(!__first) { sb.Append(", "); }
+      __first = false;
+      sb.Append("IdTrack: ");
+      sb.Append(IdTrack);
+    }
     if (TrackName != null && __isset.trackName)
     {
       if(!__first) { sb.Append(", "); }
