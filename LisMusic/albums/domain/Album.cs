@@ -34,7 +34,9 @@ namespace LisMusic.albums.domain
             this.musicGender = musicGender;
         }
 
-        public Album() { }
+        public Album() {
+            this.artist = new Artist();
+        }
     }
   
 }

@@ -1,4 +1,5 @@
-﻿using LisMusic.RpcService;
+﻿using LisMusic.personaltracks.domain;
+using LisMusic.RpcService;
 using LisMusic.tracks.domain;
 using NAudio.Wave;
 using System;

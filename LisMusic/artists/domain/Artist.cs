@@ -25,6 +25,10 @@ namespace LisMusic.artists.domain
             this.description = description;
             this.coverImage = coverImage;
         }
+
+        public Artist()
+        {
+        }
     }
 
 }
