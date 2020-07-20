@@ -338,6 +338,9 @@
     <Compile Include="Utils\Encoder.cs" />
     <Compile Include="Utils\SingletonMainWindows.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />
+    <Compile Include="Views\AddToPlaylist.xaml.cs">
+      <DependentUpon>AddToPlaylist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AlbumTracksPage.xaml.cs">
       <DependentUpon>AlbumTracksPage.xaml</DependentUpon>
     </Compile>
@@ -374,6 +377,9 @@
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewQueue.xaml.cs">
+      <DependentUpon>ViewQueue.xaml</DependentUpon>
+    </Compile>
     <Page Include="FloatingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -397,6 +403,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddToPlaylist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AlbumPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -442,6 +452,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewQueue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

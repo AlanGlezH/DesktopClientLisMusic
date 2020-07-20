@@ -1,4 +1,5 @@
 ﻿using LisMusic.albums.domain;
+using LisMusic.player;
 using LisMusic.tracks;
 using LisMusic.tracks.domain;
 using System;
@@ -54,6 +55,39 @@ namespace LisMusic.Views
                 NavigationService.GoBack();
             }
 
+        }
+
+        private void Button_add_queue_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            Player.AddTrackToQueue(track);
+        }
+
+        private void Button_generate_radio_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            GenerateRadio(track);
+        }
+
+        private void Button_add_playlist_Click(object sender, RoutedEventArgs e)
+        {
+            FloatingWindow floating = new FloatingWindow(new AddToPlaylist());
+            floating.ShowDialog();
+        }
+        private async void GenerateRadio(Track track)
+        {
+            try
+            {
+                var tracks = await TrackRepository.GetRadioTrack(track);
+                Player.AddListTracksToQueue(tracks);
+                MessageBox.Show("Gadio station generated: " + track.album.musicGender.genderName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

@@ -180,6 +180,20 @@
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
                             </GridViewColumn.Header>
                         </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <materialDesign:PopupBox x:Name="PopupBox_options" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
+                                        <StackPanel Width="auto" >
+                                            <Button x:Name="Button_add_queue" Content="Add to Queue" Click="Button_add_queue_Click"  />
+                                            <Button x:Name="Button_generate_radio" Content="Generate radio" Click="Button_generate_radio_Click" />
+                                            <Button x:Name="Button_add_playlist" Content="Add to playlist" Click="Button_add_playlist_Click" />
+                                        </StackPanel>
+                                    </materialDesign:PopupBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

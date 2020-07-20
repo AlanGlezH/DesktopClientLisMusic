@@ -58,22 +58,13 @@ namespace LisMusic
         {
             string typeImage = "albums";
             TextBlock_track_name.Text = track.title;
-            TextBlock_artist_name.Text = track.artistName;
+            TextBlock_artist_name.Text = track.album.artist.name;
             StartTrack();
             track.album.coverImage = await MediaRepository.GetImage(track.album.cover, typeImage);
             image_cover_player.Source = track.album.coverImage;
         }
 
 
-        private async void GetNextTrack(string name)
-        {
-            byte[] bytes = await RpcStreamingService.GetTrackAudio(name);
-            StopTrack();
-            Mp3FileReader mp3Reader = new Mp3FileReader(new MemoryStream(bytes));
-            wave32 = new WaveChannel32(mp3Reader);
-            _waveOutEvent.Init(wave32);
-            StartTrack();
-        }
 
         private void PrintProgress(object sender, EventArgs e)
         {
@@ -186,6 +177,11 @@ namespace LisMusic
         private void Slider_track_duration_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Player.UpdatePositionTrack(Slider_track_duration.Value);
+        }
+
+        private void Buttom_view_queue_Click(object sender, RoutedEventArgs e)
+        {
+            centralFrame.Navigate(new ViewQueue());
         }
     }
 }

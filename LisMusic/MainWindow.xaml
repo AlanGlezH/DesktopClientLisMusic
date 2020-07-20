@@ -63,9 +63,16 @@
                     <TextBlock  x:Name="TextBlock_final_duration" Text="00:00" Foreground="{DynamicResource TextColor}"/>
                 </StackPanel>
             </StackPanel>
+            
            
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,20,0">
+                    <Button x:Name="Buttom_view_queue" Height="30" Width="30" Padding="0" Foreground="{DynamicResource TextColor}"
+                            Background="Transparent" Click="Buttom_view_queue_Click">
+                        <materialDesign:PackIcon Kind="ArrowBottomDropCircleOutline" Width="30" Height="30" />
+                    </Button>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,10,0">
                     <Button x:Name="Buttom_volume" Height="30" Width="30" Padding="0" Foreground="{DynamicResource TextColor}">
                         <materialDesign:PackIcon Kind="VolumeMedium" Width="30" Height="30" />

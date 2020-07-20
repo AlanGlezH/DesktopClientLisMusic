@@ -36,8 +36,11 @@ namespace LisMusic.Views
             Image_cover_playlist.Source = playlist.coverImage;
           
             LoadTracks();
+            var template = ListView_tracks_album.ItemsPanel;
+            
 
-         
+
+
         }
 
         public async void LoadTracks()
@@ -82,6 +85,26 @@ namespace LisMusic.Views
             Button button = sender as Button;
             Track track = button.DataContext as Track;
             Player.AddTrackToQueue(track);
+        }
+
+        private void Button_generate_radio_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            GenerateRadio(track);
+        }
+
+        private async void GenerateRadio(Track track)
+        {
+            try
+            {
+                var tracks = await TrackRepository.GetRadioTrack(track);
+                Player.AddListTracksToQueue(tracks);
+                MessageBox.Show("Gadio station generated: " +track.album.musicGender.genderName);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

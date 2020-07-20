@@ -1,4 +1,5 @@
 ﻿using LisMusic.ApiServices;
+using LisMusic.Media;
 using LisMusic.tracks.domain;
 using LisMusic.Utils;
 using System;
@@ -84,6 +85,30 @@ namespace LisMusic.tracks
                 if (response.IsSuccessStatusCode)
                 {
                     tracks = await response.Content.ReadAsAsync<List<Track>>();
+                    return tracks;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+
+        public static async Task<List<Track>> GetRadioTrack(Track track)
+        {
+            string path = "/radio/gender/" + track.album.musicGender.idMusicGender;
+            List<Track> tracks;
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    tracks = await response.Content.ReadAsAsync<List<Track>>();
+                    foreach (var item in tracks)
+                    {
+                        item.album.coverImage = await MediaRepository.GetImage(item.album.cover, "albums");
+                    }
                     return tracks;
                 }
                 else

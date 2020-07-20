@@ -152,5 +152,13 @@ namespace LisMusic.player
         {
             queueTracks.Enqueue(track);
         }
+
+        public static void AddListTracksToQueue(List<Track> tracks)
+        {
+            foreach (var item in tracks)
+            {
+                queueTracks.Enqueue(item);
+            }
+        }
     }
 }
