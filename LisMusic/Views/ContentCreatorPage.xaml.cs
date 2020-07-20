@@ -1,6 +1,7 @@
 ﻿using LisMusic.albums;
 using LisMusic.albums.domain;
 using LisMusic.Media;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,11 @@ namespace LisMusic.Views
         public ContentCreatorPage()
         {
             InitializeComponent();
+            TextBlock_name_artist.Text = SingletonArtist.GetSingletonArtist().name;
+            TextBlock_description.Text = SingletonArtist.GetSingletonArtist().description;
+            Image_cover_artist.Source = SingletonArtist.GetSingletonArtist().coverImage;
             LoadAlbums();
+
         }
 
 
@@ -35,7 +40,7 @@ namespace LisMusic.Views
         {
             try
             {
-                var albums = await AlbumRepository.GetArtistAlbums("096abff7-2e00-4f15-9454-c5c5d2a39258");
+                var albums = await AlbumRepository.GetArtistAlbums(SingletonArtist.GetSingletonArtist().idArtist);
                 string typeImage = "albums";
                 foreach (var album in albums)
                 {
