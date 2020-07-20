@@ -1,5 +1,7 @@
 ﻿using LisMusic.albums.domain;
 using LisMusic.musicgenders.domain;
+using LisMusic.player;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,13 @@ namespace LisMusic.tracks.domain
             this.fileTrack = fileTrack;
             this.avaible = avaible;
             this.album = album;
+        }
+
+        public static void PlayListTracks(List<Track> tracks)
+        {
+            Player.queueTracks.Clear();
+            Player.AddListTracksToQueue(tracks);
+            SingletonMainWindows.GetSingletonWindow().GoToNextTrack();
         }
     }
 }

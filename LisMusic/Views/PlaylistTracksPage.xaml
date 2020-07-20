@@ -39,11 +39,11 @@
                 BorderBrush="{DynamicResource SecondaryColor}"
                 Height="40" Width="200"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                Content="Play" />
+                Content="Play" Click="Button_play_tracks_Click" />
             </StackPanel>
         </StackPanel>
 
-        <ListView x:Name="ListView_tracks_album" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
+        <ListView x:Name="ListView_tracks_album" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource TextColor}" MouseDoubleClick="ListView_tracks_album_MouseDoubleClick"  >
             <ListView.View >
                 <GridView>

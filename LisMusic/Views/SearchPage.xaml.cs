@@ -8,6 +8,7 @@ using LisMusic.playlists;
 using LisMusic.playlists.domain;
 using LisMusic.tracks;
 using LisMusic.tracks.domain;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -223,6 +224,19 @@ namespace LisMusic.Views
             Track track = button.DataContext as Track;
             FloatingWindow floating = new FloatingWindow(new AddToPlaylist(track));
             floating.ShowDialog();
+        }
+
+        private async void ListView_tracks_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Track track = (Track)ListView_tracks.SelectedValue;
+            if (track != null)
+            {
+                var result = await Player.UploadTrackAsync(track);
+                if (result)
+                {
+                    SingletonMainWindows.GetSingletonWindow().UpdateInfoPlayer(track);
+                }
+            }
         }
     }
 }

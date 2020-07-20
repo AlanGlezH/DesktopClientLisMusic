@@ -1,4 +1,5 @@
-﻿using LisMusic.tracks;
+﻿using LisMusic.player;
+using LisMusic.tracks;
 using LisMusic.tracks.domain;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace LisMusic.Views
     /// </summary>
     public partial class HistoryPage : Page
     {
+        List<Track> tracks;
         public HistoryPage()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace LisMusic.Views
         {
             try
             {
-                List<Track> tracks = await TrackRepository.GetTrackAccountHistory();
+                tracks = await TrackRepository.GetTrackAccountHistory();
                 ListView_tracks.ItemsSource = tracks;
             }
             catch ( Exception ex)
@@ -40,6 +42,45 @@ namespace LisMusic.Views
                 MessageBox.Show(ex.Message, "Please reload");
             }
             
+        }
+
+        private void Button_add_queue_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            Player.AddTrackToQueue(track);
+        }
+
+        private void Button_generate_radio_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            GenerateRadio(track);
+        }
+        private async void GenerateRadio(Track track)
+        {
+            try
+            {
+                var tracks = await TrackRepository.GetRadioTrack(track);
+                Player.AddListTracksToQueue(tracks);
+                MessageBox.Show("Gadio station generated: " + track.album.musicGender.genderName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        private void Button_add_playlist_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            FloatingWindow floating = new FloatingWindow(new AddToPlaylist(track));
+            floating.ShowDialog();
+        }
+
+        private void Button_play_tracks_Click(object sender, RoutedEventArgs e)
+        {
+            Track.PlayListTracks(this.tracks);
         }
     }
 }

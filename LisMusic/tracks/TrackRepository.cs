@@ -119,5 +119,31 @@ namespace LisMusic.tracks
                 }
             }
         }
+
+        public static async void AddPlayToTrack(string idAccount, string  idTrack)
+        {
+            string path = "/trackPlay/account/" + idAccount + "/track/" + idTrack;
+            using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.PostAsync(path, null))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+
+                    Console.WriteLine("Reproducction added");
+                }
+                else
+                {
+                    try
+                    {
+                        dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                        string message = objError.error;
+                        Console.WriteLine(message);
+
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

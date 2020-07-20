@@ -33,8 +33,6 @@ namespace LisMusic
     /// </summary>
     public partial class MainWindow : Window
     {
-        WaveOutEvent _waveOutEvent = new WaveOutEvent();
-        WaveStream wave32;
         DispatcherTimer loadProgressTrackTimer;
 
         public MainWindow()
@@ -119,15 +117,19 @@ namespace LisMusic
         }
         private void StopTrack()
         {
-            Player.StopPlayer();
-            icon_playPause_button.Kind = (MaterialDesignThemes.Wpf.PackIconKind)Enum.Parse(typeof(MaterialDesignThemes.Wpf.PackIconKind), "Play");
-            loadProgressTrackTimer.Stop();
+            if (Player.StopPlayer())
+            {
+                icon_playPause_button.Kind = (MaterialDesignThemes.Wpf.PackIconKind)Enum.Parse(typeof(MaterialDesignThemes.Wpf.PackIconKind), "Play");
+                loadProgressTrackTimer.Stop();
+            }
         }
         private void StartTrack()
         {
-            Player.StartPlayer();
-            icon_playPause_button.Kind = (MaterialDesignThemes.Wpf.PackIconKind)Enum.Parse(typeof(MaterialDesignThemes.Wpf.PackIconKind), "Pause");
-            loadProgressTrackTimer.Start();
+            if (Player.StartPlayer())
+            {
+                icon_playPause_button.Kind = (MaterialDesignThemes.Wpf.PackIconKind)Enum.Parse(typeof(MaterialDesignThemes.Wpf.PackIconKind), "Pause");
+                loadProgressTrackTimer.Start();
+            }
         }
         private void Button_track_playPause_Click(object sender, RoutedEventArgs e)
         {
@@ -160,7 +162,7 @@ namespace LisMusic
             Player.UpdateVolume(Slider_volume.Value);
         }
 
-        private async void GoToNextTrack()
+        public async void GoToNextTrack()
         {
             Track track = await Player.UploadNextTrack();
             if (track != null)
@@ -170,7 +172,7 @@ namespace LisMusic
             }
         }
 
-        private void Button_track_next_Click(object sender, RoutedEventArgs e)
+        public void Button_track_next_Click(object sender, RoutedEventArgs e)
         {
             GoToNextTrack();
         }
