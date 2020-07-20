@@ -101,7 +101,7 @@ namespace LisMusic.Views
             {
                 var tracks = await TrackRepository.GetRadioTrack(track);
                 Player.AddListTracksToQueue(tracks);
-                MessageBox.Show("Gadio station generated: " +track.album.musicGender.genderName);
+                MessageBox.Show("Radio station generated: " +track.album.musicGender.genderName);
             }catch(Exception ex)
             {
                 Console.WriteLine(ex);

@@ -1,4 +1,11 @@
-﻿using System;
+﻿using LisMusic.albums.domain;
+using LisMusic.musicgenders.domain;
+using LisMusic.personaltracks;
+using LisMusic.personaltracks.domain;
+using LisMusic.player;
+using LisMusic.tracks.domain;
+using LisMusic.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +30,53 @@ namespace LisMusic.Views
         public HomePage()
         {
             InitializeComponent();
+            LoadPersonalTracks();
         }
 
+        public async void LoadPersonalTracks() 
+        {
+            try
+            {
+                List<PersonalTrack> personalTracks = await PersonalTrackRepository.GetPersonsalTracksAccount();
+
+                foreach (var personalTrack in personalTracks)
+                {
+                    personalTrack.indexRow = personalTracks.IndexOf(personalTrack) + 1;
+                }
+                ListView_personal_tracks.ItemsSource = personalTracks;
+            }
+            catch ( Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Please reload");
+            }
+        }
         private void Button_history_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new HistoryPage());
+        }
+
+        private void Button_upload_personal_track_Click(object sender, RoutedEventArgs e)
+        {
+            FloatingWindow floating = new FloatingWindow(new UploadPersonalTrackPage());
+            floating.ShowDialog();
+            LoadPersonalTracks();
+        }
+
+        private async void ListView_tracks_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var personalTrack = (PersonalTrack)ListView_personal_tracks.SelectedItem;
+
+            if (personalTrack != null)
+            {
+                Track trackAux = new Track(personalTrack.idPersonalTrack,personalTrack.title,0,0,personalTrack.fileTrack, personalTrack.avaialable, new MusicGender(),new Album());
+                trackAux.album.cover = "DefaultAlbumCover.jpeg";
+                trackAux.album.artist.name = personalTrack.album;
+                var result = await Player.UploadTrackAsync(trackAux);
+                if (result)
+                {
+                    SingletonMainWindows.GetSingletonWindow().UpdateInfoPlayer(trackAux);
+                }
+            }
         }
     }
 }

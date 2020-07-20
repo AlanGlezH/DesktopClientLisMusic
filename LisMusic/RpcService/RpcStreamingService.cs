@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -75,5 +76,22 @@ namespace LisMusic.RpcService
             }
             return trackUploaded;
         }
+
+        public static async Task<Boolean> UploadPersonalTrack(TrackAudio trackAudio)
+        {
+            
+            try
+            {
+                await client.UploadPersonalTrackAsync(trackAudio);
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
     }
+
+
 }
