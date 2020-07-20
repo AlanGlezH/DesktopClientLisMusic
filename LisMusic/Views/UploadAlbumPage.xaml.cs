@@ -3,6 +3,7 @@ using LisMusic.albums.domain;
 using LisMusic.RpcService;
 using LisMusic.tracks.domain;
 using LisMusic.Utils;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,7 @@ namespace LisMusic.Views
     {
         public List<String> filePaths;
         public List<Track> tracks;
+        public string absolutePathCover;
         public UploadAlbumPage()
         {
             filePaths = new List<string>();
@@ -71,7 +73,7 @@ namespace LisMusic.Views
             Album album = new Album()
             {
                 title = TextBox_title_album.Text,
-                cover = null,
+                cover = Utils.Encoder.EncodeBase64(absolutePathCover),
                 publication = "2020-06-23",
                 recordCompany = TextBox_company_album.Text,
                 idMusicGender = 15,
@@ -100,8 +102,8 @@ namespace LisMusic.Views
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Please relod");
+
                 }
-               
             }
 
         }
@@ -116,5 +118,27 @@ namespace LisMusic.Views
 
             return albumType;
         }
+
+        private void Button_upload_file_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            try
+            {
+                if (openFileDialog.ShowDialog() == true)
+                {
+
+                    absolutePathCover = openFileDialog.FileName;
+                    Image_cover_album.Source = new BitmapImage(new Uri(absolutePathCover, UriKind.Absolute));
+                        
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Only images are accepted");
+
+            }
+        }
     }
 }
+

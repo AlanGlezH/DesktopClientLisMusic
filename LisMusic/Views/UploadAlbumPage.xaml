@@ -36,7 +36,7 @@
                     Background="{DynamicResource SecondaryColor}"
                     BorderBrush="{DynamicResource SecondaryColor}"
                     Height="40" Width="160"
-                    materialDesign:ButtonAssist.CornerRadius="20" >
+                    materialDesign:ButtonAssist.CornerRadius="20" Click="Button_upload_file_Click" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Upload" Width="20" Height="20" Margin="0,0,10,0"/>
                             <TextBlock Text="Upload Cover" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
