@@ -16,7 +16,7 @@ namespace LisMusic.ApiServices
         public static void Initialize()
         {
             ApiClient = new HttpClient();
-            ApiClient.BaseAddress = new Uri("http://localhost:5000/");
+            ApiClient.BaseAddress = new Uri("http://25.100.75.136:5000/");
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }

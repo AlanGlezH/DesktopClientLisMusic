@@ -21,7 +21,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" >
             <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                 <TextBox
-                x:Name="TextBox_title_playlist" Margin="30,0,0,20"
+                x:Name="TextBox_title_track" Margin="30,0,0,20"
                 materialDesign:HintAssist.Hint="Title Playlist"
                 materialDesign:HintAssist.Foreground="{DynamicResource TextColor}"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryColor}"
@@ -41,7 +41,7 @@
                     Background="{DynamicResource SecondaryColor}"
                     BorderBrush="{DynamicResource SecondaryColor}"
                     Height="40" Width="160" Margin="0,0,0,0"
-                    materialDesign:ButtonAssist.CornerRadius="20" >
+                    materialDesign:ButtonAssist.CornerRadius="20" Click="Button_upload_file_Click" >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Upload" Width="20" Height="20" Margin="0,0,10,0"/>
                         <TextBlock Text="Upload File" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
@@ -59,7 +59,7 @@
             BorderBrush="{DynamicResource SecondaryColor}"
             Height="40" Width="200"
             materialDesign:ButtonAssist.CornerRadius="20"
-            Content="Add track" />
+            Content="Add track" Click="Button_add_track_Click" />
         
 
     </Grid>
