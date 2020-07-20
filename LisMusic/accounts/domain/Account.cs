@@ -41,5 +41,10 @@ namespace LisMusic.accounts.domain
         public Account()
         {
         }
+
+        public override string ToString()
+        {
+            return firstName + " " + lastName;
+        }
     }
 }

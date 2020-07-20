@@ -28,6 +28,11 @@ namespace LisMusic.Utils
             return accountSesion;
         }
 
+        public static void CleanSingleton()
+        {
+            accountSesion = null;
+        }
+
 
 
     }

@@ -24,5 +24,10 @@ namespace LisMusic.Utils
         {
             return mainWindow;
         }
+
+        public static void CleanSingleton()
+        {
+            mainWindow = null;
+        }
     }
 }

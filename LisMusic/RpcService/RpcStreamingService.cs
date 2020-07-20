@@ -14,11 +14,12 @@ namespace LisMusic.RpcService
     class RpcStreamingService
     {
         private static StreamingService.Client client;
+        private static TTransport transport;
         public static void Connect()
         {
             try
             {
-                TTransport transport = new TSocketTransport("localhost", 8000);
+                transport = new TSocketTransport("localhost", 8000);
                 TProtocol protocol = new TBinaryProtocol(transport);
                 client = new StreamingService.Client(protocol);
 
@@ -29,6 +30,18 @@ namespace LisMusic.RpcService
 
             }
         }
+        public static void Disconnect()
+        {
+            try
+            {
+                transport.Close();
+                client = null;
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
 
         public static async Task<byte[]> GetTrackAudio(string fileName)
         {

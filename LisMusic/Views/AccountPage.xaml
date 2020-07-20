@@ -1,0 +1,87 @@
+﻿<Page x:Class="LisMusic.Views.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:LisMusic.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="990"
+      Background="{DynamicResource PrimaryAuxColor}"
+      Title="AccountPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Button x:Name="Button_go_back" Grid.Row="0" Background="Transparent" Padding="0" BorderBrush="Transparent" 
+                VerticalAlignment="Center" Height="40" Width="40"
+                Foreground="White" HorizontalAlignment="Left" Click="Button_back_Click" >
+                <materialDesign:PackIcon Kind="ArrowLeft"  Width="40" Height="40"/>
+            </Button>
+            <TextBlock Text="Profile information" FontSize="25" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <Border Width="150" Height="150" CornerRadius="100" Margin="20,0,0,0">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Resources/Img/account.png"/>
+                    </Border.Background>
+                </Border>
+                <StackPanel Orientation="Vertical" Margin="40,0,0,0" Width="350">
+                    <TextBlock Text="Name:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_name_account" Margin="0,0,0,10" Text="Name of account" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                    <TextBlock Text="Email:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_email_account" Margin="0,0,0,10" Text="Email of account" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                    <TextBlock Text="Username:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_username_account" Text="Username of account" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="250">
+                    <TextBlock Text="Birthday:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_birthday_account" Margin="0,0,0,10" Text="Birthday of account" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                    <TextBlock Text="Gender:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_gender_account" Margin="0,0,0,10" Text="Gender of account" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                    <TextBlock Text="Content Creator:" Foreground="White" FontSize="15"/>
+                    <TextBlock x:Name="TextBlock_content_creator_account" Text="Is content creator" Foreground="White" FontSize="17" FontWeight="DemiBold"/>
+                </StackPanel>
+                <Button
+                x:Name="Button_edit_profile" VerticalAlignment="Top"
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource SecondaryColor}"
+                BorderBrush="{DynamicResource SecondaryColor}"
+                Height="40"
+                materialDesign:ButtonAssist.CornerRadius="20">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="UserEdit" Width="20" Height="20" Margin="0,0,10,0"/>
+                        <TextBlock Text="Edit Profile" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Button
+                x:Name="Button_be_contentCreator" VerticalAlignment="Top"
+                Foreground="{DynamicResource TextColor}"
+                Background="{DynamicResource SecondaryColor}"
+                BorderBrush="{DynamicResource SecondaryColor}"
+                Height="40" Width="250" Margin="0,10,0,0"
+                materialDesign:ButtonAssist.CornerRadius="20" Click="Button_be_contentCreator_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="YoutubeCreatorStudio" Width="30" Height="30" Margin="0,0,10,0"/>
+                    <TextBlock Text="Be content creator" FontSize="17" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

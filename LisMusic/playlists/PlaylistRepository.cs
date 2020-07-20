@@ -16,11 +16,10 @@ namespace LisMusic.playlists
 {
     class PlaylistRepository
     {
-        private static string idAccount = SingletonSesion.GetSingletonSesion().account.idAccount;
 
         public static async Task<List<Playlist>> GetPlaylistsOfAccount()
         {
-            string path = "/account/" + idAccount + "/playlist";
+            string path = "/account/" + SingletonSesion.GetSingletonSesion().account.idAccount + "/playlist";
             List<Playlist> playlists = null;
 
             using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))

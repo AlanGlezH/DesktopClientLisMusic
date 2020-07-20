@@ -84,7 +84,7 @@
                 
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
                     <StackPanel Width="auto">
-                        <Button x:Name="Button_account" Content="Account"  />
+                        <Button x:Name="Button_account" Content="Account" Click="Button_account_Click"  />
                         <Button x:Name="Button_configuration" Content="Configuration" />
                     </StackPanel>
                 </materialDesign:PopupBox>

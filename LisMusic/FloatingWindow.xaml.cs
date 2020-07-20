@@ -34,5 +34,11 @@ namespace LisMusic
             centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             centralFrame.Navigate(page);
         }
+        public FloatingWindow(CreateArtistPage page)
+        {
+            InitializeComponent();
+            centralFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            centralFrame.Navigate(page);
+        }
     }
 }

@@ -112,8 +112,23 @@ namespace LisMusic
                     break;
                 case "ItemHistory":
                     break;
+                case "ItemExit":
+                    SingOut();
+                    break;
             }
         }
+
+        private void SingOut()
+        {
+            SingletonSesion.CleanSingleton();
+            SingletonMainWindows.CleanSingleton();
+            StopTrack();
+            RpcStreamingService.Disconnect();
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
         private void StopTrack()
         {
             if (Player.StopPlayer())
@@ -184,6 +199,11 @@ namespace LisMusic
         private void Buttom_view_queue_Click(object sender, RoutedEventArgs e)
         {
             centralFrame.Navigate(new ViewQueue());
+        }
+
+        private void Button_account_Click(object sender, RoutedEventArgs e)
+        {
+            centralFrame.Navigate(new AccountPage());
         }
     }
 }
