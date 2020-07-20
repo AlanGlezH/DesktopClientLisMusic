@@ -328,6 +328,8 @@
     <Compile Include="gen-netstd\TrackUploaded.cs" />
     <Compile Include="Media\MediaRepository.cs" />
     <Compile Include="musicgenders\domain\MusicGender.cs" />
+    <Compile Include="personaltracks\domain\PersonalTrack.cs" />
+    <Compile Include="personaltracks\PersonalTrackRepository.cs" />
     <Compile Include="player\Player.cs" />
     <Compile Include="playlists\domain\Playlist.cs" />
     <Compile Include="playlists\PlaylistRepository.cs" />
@@ -381,6 +383,9 @@
     </Compile>
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadPersonalTrackPage.xaml.cs">
+      <DependentUpon>UploadPersonalTrackPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewQueue.xaml.cs">
       <DependentUpon>ViewQueue.xaml</DependentUpon>
@@ -467,6 +472,10 @@
     <Page Include="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadPersonalTrackPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ViewQueue.xaml">
       <SubType>Designer</SubType>

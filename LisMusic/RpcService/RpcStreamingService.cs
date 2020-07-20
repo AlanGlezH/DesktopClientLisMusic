@@ -15,12 +15,12 @@ namespace LisMusic.RpcService
     class RpcStreamingService
     {
         private static StreamingService.Client client;
-        private static TTransport transport;
+        
         public static void Connect()
         {
             try
             {
-                transport = new TSocketTransport("localhost", 8000);
+                TTransport transport = new TSocketTransport("localhost", 8000);
                 TProtocol protocol = new TBinaryProtocol(transport);
                 client = new StreamingService.Client(protocol);
 
@@ -35,7 +35,6 @@ namespace LisMusic.RpcService
         {
             try
             {
-                transport.Close();
                 client = null;
             }catch(Exception ex)
             {
