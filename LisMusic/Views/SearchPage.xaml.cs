@@ -219,7 +219,9 @@ namespace LisMusic.Views
 
         private void Button_add_playlist_Click(object sender, RoutedEventArgs e)
         {
-            FloatingWindow floating = new FloatingWindow(new AddToPlaylist());
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            FloatingWindow floating = new FloatingWindow(new AddToPlaylist(track));
             floating.ShowDialog();
         }
     }

@@ -84,8 +84,7 @@
                                     <StackPanel Width="auto" >
                                         <Button x:Name="Button_add_queue" Content="Add to Queue" Click="Button_add_queue_Click"  />
                                         <Button x:Name="Button_generate_radio" Content="Generate radio" Click="Button_generate_radio_Click" />
-                                        <Button x:Name="Button_add_playlist" Content="Add to playlist" />
-                                        <Button x:Name="Button_remove_playlist" Content="Remove to playlist" />
+                                        <Button x:Name="Button_remove_playlist" Content="Remove to playlist" Click="Button_remove_playlist_Click" />
                                     </StackPanel>
                                 </materialDesign:PopupBox>
                             </DataTemplate>

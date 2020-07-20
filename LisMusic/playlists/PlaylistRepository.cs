@@ -79,5 +79,40 @@ namespace LisMusic.playlists
                 }
             }
         }
+
+        public static async Task<bool> AddTrack(string idtrack, int idPlaylist)
+        {
+            string path = "/playlist/" + idPlaylist + "/track/" + idtrack;
+            using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.PostAsync(path, null))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+        public static async Task<bool> RemoveTrack(string idtrack, int idPlaylist)
+        {
+            string path = "/playlist/" + idPlaylist + "/track/" + idtrack;
+            using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.DeleteAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LisMusic.player;
+using LisMusic.playlists;
 using LisMusic.playlists.domain;
 using LisMusic.tracks;
 using LisMusic.tracks.domain;
@@ -104,6 +105,24 @@ namespace LisMusic.Views
             }catch(Exception ex)
             {
                 Console.WriteLine(ex);
+            }
+        }
+
+        private async void Button_remove_playlist_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Track track = button.DataContext as Track;
+            try
+            {
+                if (await PlaylistRepository.RemoveTrack(track.idTrack, this.playlist.idPlaylist))
+                {
+                    MessageBox.Show("Removed to playlist");
+                    LoadTracks();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

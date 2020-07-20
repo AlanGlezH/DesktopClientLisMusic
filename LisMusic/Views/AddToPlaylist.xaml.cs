@@ -1,6 +1,7 @@
 ﻿using LisMusic.Media;
 using LisMusic.playlists;
 using LisMusic.playlists.domain;
+using LisMusic.tracks.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,11 @@ namespace LisMusic.Views
     /// </summary>
     public partial class AddToPlaylist : Page
     {
-        public AddToPlaylist()
+        Track track;
+        public AddToPlaylist(Track track)
         {
             InitializeComponent();
+            this.track = track;
             LoadPlaylists();
         }
 
@@ -48,10 +51,25 @@ namespace LisMusic.Views
 
 
         }
-        private void ListViewPlaylists_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private async void ListViewPlaylists_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
-            MessageBox.Show("Added to playlist");
+            var playlist = (Playlist)ListViewPlaylists.SelectedValue;
+            if(playlist != null)
+            {
+                try
+                {
+                    if (await PlaylistRepository.AddTrack(this.track.idTrack, playlist.idPlaylist))
+                    {
+                        MessageBox.Show("Added to playlist");
+                        Window.GetWindow(this).Close();
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
+
+        
     }
 }
