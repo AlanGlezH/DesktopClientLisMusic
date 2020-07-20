@@ -19,14 +19,14 @@
         <TextBlock Text="Create artist profile" FontSize="25" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" >
             <StackPanel>
-                <Image x:Name="Image_cover_playlist" Source="/Resources/Img/defaultArtistCover.jpeg"  Width="200" Height="180" Margin="10"/>
+                <Image x:Name="Image_cover_artist" Source="/Resources/Img/defaultArtistCover.jpeg"  Width="200" Height="180" Margin="10"/>
                 <Button
                     x:Name="Button_upload_cover" VerticalAlignment="Top"
                     Foreground="{DynamicResource TextColor}"
                     Background="{DynamicResource SecondaryColor}"
                     BorderBrush="{DynamicResource SecondaryColor}"
                     Height="40" Width="160"
-                    materialDesign:ButtonAssist.CornerRadius="20">
+                    materialDesign:ButtonAssist.CornerRadius="20" Click="Button_upload_cover_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Upload" Width="20" Height="20" Margin="0,0,10,0"/>
                         <TextBlock Text="Upload Image" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
@@ -72,6 +72,6 @@
             BorderBrush="{DynamicResource SecondaryColor}"
             Height="40" Width="200"
             materialDesign:ButtonAssist.CornerRadius="20"
-            Content="Create" />
+            Content="Create" Click="Button_create_Click" />
     </Grid>
 </Page>

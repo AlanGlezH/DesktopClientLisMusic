@@ -65,7 +65,7 @@ namespace LisMusic.Views
                     }
                 }catch(Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

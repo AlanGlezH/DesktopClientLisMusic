@@ -337,6 +337,7 @@
     <Compile Include="tracks\domain\Track.cs" />
     <Compile Include="tracks\TrackRepository.cs" />
     <Compile Include="Utils\Encoder.cs" />
+    <Compile Include="Utils\SingletonArtist.cs" />
     <Compile Include="Utils\SingletonMainWindows.cs" />
     <Compile Include="Utils\SingletonSesion.cs" />
     <Compile Include="Views\AccountPage.xaml.cs">

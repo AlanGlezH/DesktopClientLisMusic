@@ -1,4 +1,5 @@
 ﻿using LisMusic.ApiServices;
+using LisMusic.artists;
 using LisMusic.Media;
 using LisMusic.personaltracks.domain;
 using LisMusic.player;
@@ -45,12 +46,21 @@ namespace LisMusic
 
 
         }
-        public void InitializeWindow()
+        public async void InitializeWindow()
         {
             SingletonMainWindows.SetSingletonWindow(this);
             loadProgressTrackTimer = new DispatcherTimer();
             loadProgressTrackTimer.Tick += new EventHandler(PrintProgress);
             loadProgressTrackTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            if (SingletonSesion.GetSingletonSesion().account.contentCreator)
+            {
+                ItemCreator.Visibility = Visibility.Visible;
+                if(await ArtistRepository.GetArtistOfAccount(SingletonSesion.GetSingletonSesion().account.idAccount))
+                {
+                    Console.WriteLine("Artist profile loaded: " + SingletonArtist.GetSingletonArtist().name );
+
+                }
+            }
         }
 
         public async void UpdateInfoPlayer(Track track)
@@ -123,6 +133,7 @@ namespace LisMusic
         {
             SingletonSesion.CleanSingleton();
             SingletonMainWindows.CleanSingleton();
+            SingletonArtist.CleanSingleton();
             StopTrack();
             RpcStreamingService.Disconnect();
             Login login = new Login();
