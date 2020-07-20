@@ -23,6 +23,7 @@ namespace LisMusic.Views
     /// </summary>
     public partial class HistoryPage : Page
     {
+        List<Track> tracks;
         public HistoryPage()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace LisMusic.Views
         {
             try
             {
-                List<Track> tracks = await TrackRepository.GetTrackAccountHistory();
+                tracks = await TrackRepository.GetTrackAccountHistory();
                 ListView_tracks.ItemsSource = tracks;
             }
             catch ( Exception ex)
@@ -75,6 +76,11 @@ namespace LisMusic.Views
             Track track = button.DataContext as Track;
             FloatingWindow floating = new FloatingWindow(new AddToPlaylist(track));
             floating.ShowDialog();
+        }
+
+        private void Button_play_tracks_Click(object sender, RoutedEventArgs e)
+        {
+            Track.PlayListTracks(this.tracks);
         }
     }
 }

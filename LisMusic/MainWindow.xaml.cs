@@ -161,7 +161,7 @@ namespace LisMusic
             Player.UpdateVolume(Slider_volume.Value);
         }
 
-        private async void GoToNextTrack()
+        public async void GoToNextTrack()
         {
             Track track = await Player.UploadNextTrack();
             if (track != null)
@@ -171,7 +171,7 @@ namespace LisMusic
             }
         }
 
-        private void Button_track_next_Click(object sender, RoutedEventArgs e)
+        public void Button_track_next_Click(object sender, RoutedEventArgs e)
         {
             GoToNextTrack();
         }

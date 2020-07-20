@@ -39,7 +39,7 @@
                 BorderBrush="{DynamicResource SecondaryColor}"
                 Height="40" Width="200"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                Content="Play" />
+                Content="Play" Click="Button_play_tracks_Click" />
             </StackPanel>
         </StackPanel>
 

@@ -105,5 +105,10 @@ namespace LisMusic.Views
                 }
             }
         }
+
+        private void Button_play_tracks_Click(object sender, RoutedEventArgs e)
+        {
+            Track.PlayListTracks(this.tracks);
+        }
     }
 }
