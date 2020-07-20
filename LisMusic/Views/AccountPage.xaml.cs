@@ -64,6 +64,7 @@ namespace LisMusic.Views
         {
             FloatingWindow floating = new FloatingWindow(new CreateArtistPage());
             floating.ShowDialog();
+            LoadProfile();
         }
     }
 }

@@ -92,6 +92,7 @@ namespace LisMusic.Views
                     SingletonMainWindows.GetSingletonWindow().ItemCreator.Visibility = Visibility.Visible;
                     SingletonSesion.GetSingletonSesion().account.contentCreator = true;
                     MessageBox.Show("Artist created");
+                    SingletonMainWindows.GetSingletonWindow().ReloadArtist();
                     Window.GetWindow(this).Close();
                 }
                 else

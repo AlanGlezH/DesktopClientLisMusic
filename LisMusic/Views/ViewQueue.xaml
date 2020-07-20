@@ -26,6 +26,19 @@
             <TextBlock Text="Reproductions queue" FontSize="35" Foreground="{DynamicResource TextColor}" 
                        FontWeight="DemiBold" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
         </Grid>
+        <Button Grid.Row="1"
+                    x:Name="Button_clear_queue" VerticalAlignment="Center"
+                    Foreground="{DynamicResource TextColor}"
+                    Background="{DynamicResource SecondaryColor}"
+                    BorderBrush="{DynamicResource SecondaryColor}"
+                    Height="40" Width="160" Margin="0,0,0,0"
+                    materialDesign:ButtonAssist.CornerRadius="20" Click="Button_clear_queue_Click" >
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Clear" Width="20" Height="20" Margin="0,0,10,0"/>
+                <TextBlock Text="Clear Queue" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
 
         <ListView x:Name="ListView_tracks_queue" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource TextColor}" >

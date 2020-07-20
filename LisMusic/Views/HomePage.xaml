@@ -1,5 +1,6 @@
 ﻿<Page x:Class="LisMusic.Views.HomePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -64,7 +65,19 @@
                                                   IsHitTestVisible="False"></GridViewColumnHeader>
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                    </GridView>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <materialDesign:PopupBox x:Name="PopupBox_options" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
+                                    <StackPanel Width="auto" >
+                                        <Button x:Name="Button_add_queue" Content="Add to Queue" Click="Button_add_queue_Click"  />
+                                    </StackPanel>
+                                </materialDesign:PopupBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
                 </ListView.View>
             </ListView>
 
