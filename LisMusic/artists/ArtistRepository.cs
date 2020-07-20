@@ -1,5 +1,6 @@
 ﻿using LisMusic.ApiServices;
 using LisMusic.artists.domain;
+using LisMusic.Media;
 using LisMusic.Utils;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -95,7 +96,10 @@ namespace LisMusic.artists
                     newArtist = await response.Content.ReadAsAsync<Artist>();
                     if (newArtist != null)
                     {
+                        string typeImage = "artists";
+                        newArtist.coverImage = await MediaRepository.GetImage(newArtist.cover, typeImage);
                         SingletonArtist.SetSinglentonArtist(newArtist);
+
                         return true;
                     }
                     else
