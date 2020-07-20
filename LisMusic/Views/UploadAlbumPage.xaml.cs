@@ -39,6 +39,7 @@ namespace LisMusic.Views
 
         private void LoadTracksTable()
         {
+            ListView_tracks.ItemsSource = null;
             ListView_tracks.ItemsSource = tracks;
         }
 
@@ -97,7 +98,7 @@ namespace LisMusic.Views
                 try
                 {
                     await RpcStreamingService.UploadTrack(trackAudio);
-                    MessageBox.Show("ALbum created");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -105,7 +106,8 @@ namespace LisMusic.Views
 
                 }
             }
-
+            MessageBox.Show("Album created");
+            NavigationService.Navigate(new ContentCreatorPage());
         }
 
         public int GetAlbumType()

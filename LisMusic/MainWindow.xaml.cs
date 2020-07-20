@@ -63,6 +63,19 @@ namespace LisMusic
             }
         }
 
+        public async void ReloadArtist()
+        {
+            if (SingletonSesion.GetSingletonSesion().account.contentCreator)
+            {
+                ItemCreator.Visibility = Visibility.Visible;
+                if (await ArtistRepository.GetArtistOfAccount(SingletonSesion.GetSingletonSesion().account.idAccount))
+                {
+                    Console.WriteLine("Artist profile loaded: " + SingletonArtist.GetSingletonArtist().name);
+
+                }
+            }
+        }
+
         public async void UpdateInfoPlayer(Track track)
         {
             string typeImage = "albums";

@@ -42,6 +42,7 @@ namespace LisMusic.Views
                 {
                     playlist.coverImage = await MediaRepository.GetImage(playlist.cover, typeImage);
                 }
+                ListViewPlaylists.ItemsSource = null;
                 ListViewPlaylists.ItemsSource = playlists;
             }
             catch(Exception ex)

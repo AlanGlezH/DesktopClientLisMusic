@@ -31,6 +31,7 @@ namespace LisMusic.Views
         {
             try
             {
+                ListView_tracks_queue.ItemsSource = null;
                 ListView_tracks_queue.ItemsSource = Player.queueTracks;
             }
             catch (Exception ex)
@@ -45,6 +46,12 @@ namespace LisMusic.Views
             {
                 NavigationService.GoBack();
             }
+        }
+
+        private void Button_clear_queue_Click(object sender, RoutedEventArgs e)
+        {
+            Player.queueTracks.Clear();
+            LoadTracks();
         }
     }
 }

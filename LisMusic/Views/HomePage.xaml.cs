@@ -69,13 +69,27 @@ namespace LisMusic.Views
             if (personalTrack != null)
             {
                 Track trackAux = new Track(personalTrack.idPersonalTrack,personalTrack.title,0,0,personalTrack.fileTrack, personalTrack.avaialable, new MusicGender(),new Album());
-                trackAux.album.cover = "DefaultAlbumCover.jpeg";
+                trackAux.album.cover = "defaultAlbumCover.jpeg";
                 trackAux.album.artist.name = personalTrack.album;
                 var result = await Player.UploadTrackAsync(trackAux);
                 if (result)
                 {
                     SingletonMainWindows.GetSingletonWindow().UpdateInfoPlayer(trackAux);
                 }
+            }
+        }
+
+        private void Button_add_queue_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            PersonalTrack personalTrack = button.DataContext as PersonalTrack;
+
+            if (personalTrack != null)
+            {
+                Track trackAux = new Track(personalTrack.idPersonalTrack, personalTrack.title, 0, 0, personalTrack.fileTrack, personalTrack.avaialable, new MusicGender(), new Album());
+                trackAux.album.cover = "defaultAlbumCover.jpeg";
+                trackAux.album.artist.name = personalTrack.album;
+                Player.AddTrackToQueue(trackAux);
             }
         }
     }
