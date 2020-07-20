@@ -1,5 +1,7 @@
 ﻿using LisMusic.RpcService;
+using LisMusic.tracks;
 using LisMusic.tracks.domain;
+using LisMusic.Utils;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
@@ -31,14 +33,23 @@ namespace LisMusic.player
 
         public static async Task<bool> UploadTrackAsync(Track track)
         {
-            byte[] bytes = await RpcStreamingService.GetTrackAudio(track.fileTrack);
-            Player.StopPlayer();
-            Mp3FileReader mp3Reader = new Mp3FileReader(new MemoryStream(bytes));
-            waveStream = new WaveChannel32(mp3Reader);
-            waveOutEvent.Init(waveStream);
-            isTrackReady = true;
-            Player.StartPlayer();
-            return true;
+            try
+            {
+                byte[] bytes = await RpcStreamingService.GetTrackAudio(track.fileTrack);
+                Player.StopPlayer();
+                Mp3FileReader mp3Reader = new Mp3FileReader(new MemoryStream(bytes));
+                waveStream = new WaveChannel32(mp3Reader);
+                waveOutEvent.Init(waveStream);
+                isTrackReady = true;
+                Player.StartPlayer();
+                TrackRepository.AddPlayToTrack(SingletonSesion.GetSingletonSesion().account.idAccount, track.idTrack);
+                return true;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
         }
         public static async Task<Track> UploadNextTrack()
         {
