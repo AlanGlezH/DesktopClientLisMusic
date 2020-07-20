@@ -38,8 +38,8 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Margin="10">
-            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
+
+            <ListView  x:Name="ListView_tracks"   Grid.Row="1" Margin="10" ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}" MouseDoubleClick="ListView_tracks_MouseDoubleClick"  >
                 <ListView.View >
                     <GridView>
@@ -85,7 +85,7 @@
                 </ListView.View>
             </ListView>
 
-        </StackPanel>
+
 
         
     </Grid>
