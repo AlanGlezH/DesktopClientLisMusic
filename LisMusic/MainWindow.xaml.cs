@@ -96,6 +96,9 @@ namespace LisMusic
         {
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
+                case "ItemContentCreator":
+                    centralFrame.Navigate(new ContentCreatorPage());
+                    break;
                 case "ItemHome":
                     centralFrame.Navigate(new HomePage());
                     break;

@@ -354,6 +354,9 @@
     <Compile Include="Views\ArtistPage.xaml.cs">
       <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ContentCreatorPage.xaml.cs">
+      <DependentUpon>ContentCreatorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateArtistPage.xaml.cs">
       <DependentUpon>CreateArtistPage.xaml</DependentUpon>
     </Compile>
@@ -436,6 +439,10 @@
     <Page Include="Views\ArtistPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContentCreatorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CreateArtistPage.xaml">
       <SubType>Designer</SubType>

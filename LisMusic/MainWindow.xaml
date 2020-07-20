@@ -115,7 +115,7 @@
                 </Grid>
 
                 <ListView x:Name="ListViewMenu" Foreground="{DynamicResource TextColor}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged"  >
-                    <ListViewItem x:Name="ItemCreator" Height="60">
+                    <ListViewItem x:Name="ItemContentCreator" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="YoutubeCreatorStudio" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Content Creator" VerticalAlignment="Center"  Margin="20 10"/>
