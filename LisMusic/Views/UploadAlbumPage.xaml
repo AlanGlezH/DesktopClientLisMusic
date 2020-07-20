@@ -114,7 +114,7 @@
                     Background="{DynamicResource SecondaryColor}"
                     BorderBrush="{DynamicResource SecondaryColor}"
                     Height="40" Width="160"
-                    materialDesign:ButtonAssist.CornerRadius="20" >
+                    materialDesign:ButtonAssist.CornerRadius="20" Click="Button_create_album_Click" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Upload" Width="20" Height="20" Margin="0,0,10,0"/>
                             <TextBlock Text="Create Album" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
@@ -136,7 +136,7 @@
                 <TextBlock Text="Add Track" FontSize="15" Foreground="{DynamicResource TextColor}" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <ListView x:Name="ListView_tracks_album" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
+        <ListView x:Name="ListView_tracks" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource TextColor}" >
             <ListView.View >
                 <GridView>
@@ -146,12 +146,7 @@
                                                    IsHitTestVisible="False" ></GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding duration}"  Width="100">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Path" Foreground="{DynamicResource TextColor}" 
-                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
+
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

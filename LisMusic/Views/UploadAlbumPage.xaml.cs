@@ -1,5 +1,11 @@
-﻿using System;
+﻿using LisMusic.albums;
+using LisMusic.albums.domain;
+using LisMusic.RpcService;
+using LisMusic.tracks.domain;
+using LisMusic.Utils;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +26,18 @@ namespace LisMusic.Views
     /// </summary>
     public partial class UploadAlbumPage : Page
     {
+        public List<String> filePaths;
+        public List<Track> tracks;
         public UploadAlbumPage()
         {
+            filePaths = new List<string>();
+            tracks = new List<Track>();
             InitializeComponent();
+        }
+
+        private void LoadTracksTable()
+        {
+            ListView_tracks.ItemsSource = tracks;
         }
 
         private void Button_back_Click(object sender, RoutedEventArgs e)
@@ -37,6 +52,69 @@ namespace LisMusic.Views
         {
             FloatingWindow floating = new FloatingWindow(new UploadTrack(this));
             floating.ShowDialog();
+            LoadTracksTable();
+        }
+
+        private void Button_create_album_Click(object sender, RoutedEventArgs e)
+        {
+            SaveAlbum();
+        }
+
+        private byte[] GetTrackBytes(string filePath)
+        {
+            return File.ReadAllBytes(filePath);
+        }
+
+
+        private async void SaveAlbum()
+        {
+            Album album = new Album()
+            {
+                title = TextBox_title_album.Text,
+                cover = null,
+                publication = "2020-06-23",
+                recordCompany = TextBox_company_album.Text,
+                idMusicGender = 15,
+                idAlbumType = GetAlbumType(),
+                idArtist = SingletonArtist.GetSingletonArtist().idArtist,
+
+            };
+
+            album.tracks = this.tracks;
+            album = await AlbumRepository.CreateAlbum(album);
+
+            for (int i = 0; i < album.tracks.Count; i++)
+            {
+                TrackAudio trackAudio = new TrackAudio()
+                {
+                    IdTrack = album.tracks[i].idTrack,
+                    TrackName = album.tracks[i].title,
+                    Audio = GetTrackBytes(filePaths[i])
+                };
+
+                try
+                {
+                    await RpcStreamingService.UploadTrack(trackAudio);
+                    MessageBox.Show("ALbum created");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Please relod");
+                }
+               
+            }
+
+        }
+
+        public int GetAlbumType()
+        {
+            int albumType = 1;
+            if (filePaths.Count > 1)
+            {
+                albumType = 2;
+            }
+
+            return albumType;
         }
     }
 }
