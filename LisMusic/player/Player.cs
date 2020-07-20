@@ -114,7 +114,11 @@ namespace LisMusic.player
 
         public static void RestartTrack()
         {
-            waveStream.Position = 0;
+            if (isTrackReady)
+            {
+                waveStream.Position = 0;
+
+            }
         }
 
         public static void UpdateVolume(double volume)

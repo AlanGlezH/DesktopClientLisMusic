@@ -2,6 +2,7 @@
 using LisMusic.player;
 using LisMusic.tracks;
 using LisMusic.tracks.domain;
+using LisMusic.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +90,19 @@ namespace LisMusic.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+            }
+        }
+
+        private async void ListView_tracks_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Track track = (Track)ListView_tracks.SelectedValue;
+            if (track != null)
+            {
+                var result = await Player.UploadTrackAsync(track);
+                if (result)
+                {
+                    SingletonMainWindows.GetSingletonWindow().UpdateInfoPlayer(track);
+                }
             }
         }
     }

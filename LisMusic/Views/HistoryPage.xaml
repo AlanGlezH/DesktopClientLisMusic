@@ -42,7 +42,7 @@
         
         <TextBlock Text="History" FontSize="35" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" Width="130" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="2" Margin="10">
-            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="17" 
+            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}">
                 <ListView.View >
                     <GridView>
@@ -75,6 +75,20 @@
                                 <GridViewColumnHeader Content="Plays" Foreground="{DynamicResource TextColor}" 
                                                   IsHitTestVisible="False" ></GridViewColumnHeader>
                             </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <materialDesign:PopupBox x:Name="PopupBox_options" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10" Foreground="White">
+                                        <StackPanel Width="auto" >
+                                            <Button x:Name="Button_add_queue" Content="Add to Queue" Click="Button_add_queue_Click"  />
+                                            <Button x:Name="Button_generate_radio" Content="Generate radio" Click="Button_generate_radio_Click" />
+                                            <Button x:Name="Button_add_playlist" Content="Add to playlist" Click="Button_add_playlist_Click" />
+                                        </StackPanel>
+                                    </materialDesign:PopupBox>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>

@@ -27,7 +27,7 @@
                        FontWeight="DemiBold" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
         </Grid>
 
-        <ListView x:Name="ListView_tracks_queue" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
+        <ListView x:Name="ListView_tracks_queue" Grid.Row="2"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
                   HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource TextColor}" >
             <ListView.View >
                 <GridView>

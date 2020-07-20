@@ -39,8 +39,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Margin="10">
-            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="22" 
-                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}"  >
+            <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
+                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}" MouseDoubleClick="ListView_tracks_MouseDoubleClick"  >
                 <ListView.View >
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding indexRow}" Width="auto">
