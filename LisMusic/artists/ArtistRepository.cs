@@ -54,5 +54,62 @@ namespace LisMusic.artists
                 }
             }
         }
+
+
+        public static async Task<bool> CreateArtist(Artist artist)
+        {
+            string path = "artist";
+            Artist newArtist;
+            using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.PostAsJsonAsync(path, artist))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    newArtist = await response.Content.ReadAsAsync<Artist>();
+                    if(newArtist != null)
+                    {
+                        SingletonArtist.SetSinglentonArtist(newArtist);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+
+        public static async Task<bool> GetArtistOfAccount(string idAccount)
+        {
+            string path = "account/" + idAccount + "/artist";
+            Artist newArtist;
+            using (HttpResponseMessage response = await ApiServiceReader.ApiClient.GetAsync(path))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    newArtist = await response.Content.ReadAsAsync<Artist>();
+                    if (newArtist != null)
+                    {
+                        SingletonArtist.SetSinglentonArtist(newArtist);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
     }
 }
