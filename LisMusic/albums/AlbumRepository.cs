@@ -1,5 +1,7 @@
 ﻿using LisMusic.albums.domain;
 using LisMusic.ApiServices;
+using LisMusic.musicgenders.domain;
+using LisMusic.tracks.domain;
 using LisMusic.Utils;
 using Newtonsoft.Json;
 using System;
@@ -66,6 +68,25 @@ namespace LisMusic.albums
                 if (response.IsSuccessStatusCode)
                 {
                     albums = await response.Content.ReadAsAsync<List<Album>>();
+                    return albums;
+                }
+                else
+                {
+                    dynamic objError = await response.Content.ReadAsAsync<dynamic>();
+                    string message = objError.error;
+                    throw new Exception(message);
+                }
+            }
+        }
+
+        public static async Task<Album> CreateAlbum(Album album)
+        {
+            string path = "album";
+            using (HttpResponseMessage response = await ApiServiceWriter.ApiClient.PostAsJsonAsync(path, album))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var albums = await response.Content.ReadAsAsync<Album>();
                     return albums;
                 }
                 else

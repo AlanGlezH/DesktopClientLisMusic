@@ -43,7 +43,7 @@
         <TextBlock Text="History" FontSize="35" Foreground="{DynamicResource TextColor}" FontWeight="DemiBold" VerticalAlignment="Center" Width="130" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="2" Margin="10">
             <ListView x:Name="ListView_tracks"  ItemsSource="{Binding Track}" VerticalAlignment="Top" FontSize="15" 
-                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}">
+                  HorizontalAlignment="Center"  Foreground="{DynamicResource TextColor}" MouseDoubleClick="ListView_tracks_MouseDoubleClick">
                 <ListView.View >
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding title}"   Width="300">
