@@ -57,6 +57,11 @@ namespace LisMusic.Views
                 NavigationService.Navigate(new AlbumTracksPage(album));
             }
         }
+
+        private void Button_upload_album_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UploadAlbumPage());
+        }
     }
 
 }
