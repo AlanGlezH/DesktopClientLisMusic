@@ -34,7 +34,7 @@
                         <DropShadowEffect ShadowDepth="1"/>
                     </Border.Effect>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Resources/Img/account.png"/>
+                        <ImageBrush ImageSource="/Resources/Img/account.jpeg"/>
                     </Border.Background>
                 </Border>
                 <StackPanel Orientation="Vertical" Margin="40,0,0,0" Width="350">

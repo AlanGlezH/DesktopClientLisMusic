@@ -113,12 +113,12 @@ namespace LisMusic
                 case "ItemHistory":
                     break;
                 case "ItemExit":
-                    SingOut();
+                    LogOut();
                     break;
             }
         }
 
-        private void SingOut()
+        private void LogOut()
         {
             SingletonSesion.CleanSingleton();
             SingletonMainWindows.CleanSingleton();
